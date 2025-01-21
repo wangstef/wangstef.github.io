@@ -1,0 +1,193 @@
+*{
+ margin: auto;
+ padding: 0px;
+ text-decoration: none;   
+}
+
+p{
+    font-family:"Space Grotesk", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+header{
+    display: flex;
+    height: 256px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    /* Typography*/
+    color: #000;
+    text-align: center;
+    font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+}
+
+header2{
+    display: flex;
+    height: 256px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    color: #000;
+    font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+main{
+    display: flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+
+
+
+}
+
+footer{
+    display: flex;
+    height: 144px;
+    padding: 10px;   
+    justify-content: center; 
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    color: #000;
+    text-align: center;
+    font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.row{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.subpage{
+    width: 300px;
+    height: 300px;
+    border-radius: 32px;
+    background: #C4F3FF;
+    box-shadow: 147px 132px 55px 0px rgba(0, 0, 0, 0.00), 94px 84px 51px 0px rgba(0, 0, 0, 0.01), 53px 47px 43px 0px rgba(0, 0, 0, 0.05), 24px 21px 32px 0px rgba(0, 0, 0, 0.09), 6px 5px 17px 0px rgba(0, 0, 0, 0.10);
+    /*overflow hides content outside of curved box bounds*/
+    overflow: hidden;
+}
+
+.subpage-image{
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    /*background: url(<path-to-image>) lightgray 50% / cover no-repeat;*/
+}
+
+.label-container{
+    display: flex;
+    width: 275px;
+    height: 120px;
+    padding: 22px 20px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(88, 88, 88, 0.55) 61.85%, rgba(0, 0, 0, 0.84) 115.42%);
+    position: relative;
+    bottom: 164px;
+}
+
+.subpage-title{
+    color: #FFF;
+    text-align: center;
+    text-shadow: 56px 45px 20px rgba(0, 0, 0, 0.00), 36px 29px 18px rgba(0, 0, 0, 0.01), 20px 16px 15px rgba(0, 0, 0, 0.05), 9px 7px 11px rgba(0, 0, 0, 0.09), 2px 2px 6px rgba(0, 0, 0, 0.10);
+    font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.collapsible {
+    background: #b80000;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-radius: 18px;
+    font-family:"Space Grotesk", Arial, Helvetica, sans-serif;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #ffb700;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    font-family:"Space Grotesk", Arial, Helvetica, sans-serif;
+  }
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../styles/style.css"/>
+    <meta charset="utf-8">
+
+</head>
+<body>
+
+<header>course log: class reflections
+</header>
+
+
+<button type="button" class="collapsible">Jan 7 2025 Intro</button>
+<div class="content">
+  <p>There is so much more to making a website than I thought but also it is
+    more intuitive and logical than I had assumed. I have very little 
+    vocabulary in this realm and my knowledge is very theoretical, so it
+    is great to be learning dev language in a very practical way. It was nice to hear some words I knew from
+    backend (I now understand this term...) coding courses. But knowing basic 
+    python does not seem like it will help me much... but I was also 
+    mediocre at it anyways so this will be a nice fresh start! I am 
+    really excited to learn more and I think the design aspect will 
+    add a lot of new layers to explore!</p></div>
+
+<button type="button" class="collapsible">Jan 14 2025</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+</script>
+
+</body>
+</html>
