@@ -25,24 +25,75 @@
 
 <button type="button" class="collapsible">Jan 14 2025</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+  <p> Accessibility in design!! 
     
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
+    Perceivable
+     How do we make our designs clear and pleasant viewing experience
+
+    Operable
+      How do we make sure our designss work and let users have control 
+    
+    Understandable
+      How do we make our designs logical and useable
+    
+    Robust 
+      How do we make our designs work in different formats
+
+    
+      Figma, developer mode can be very useful in segmenting and testing each design element
+      one at a time.
+  </p></div>
+
+<button type="button" class="collapsible">Jan 21 2025</button>
+<div class="content">
+  <p> 
+Pre-production: Will save you a lot of time later!!
+Make sure to use this to check in with the client.
+
+
+  </p></div>
+
+  <button type="button" class="collapsible">Jan 28 2025</button>
+  <div class="content">
+    <p> 
+  I learnt a lot from the presentations of everyone's storyboards, I think there 
+  is a lot to gain from each presentation and the thoughtful ways in which they 
+  represented their storyboards. 
+  Things I would like to implement in my future storyboards:
+      1. Legend that explains elements of the storyboards
+      2. Improve legibility: contrast on colours, white outline on arrows, bright 
+      arrows for movement changes 
+      3. Improve conprehension: enumeration on panel, script separate from movement
+      cues, have hints of the context outside of the panel frames, use transparencies and 
+      dotted lines 
+    </p></div>
+
+  <button type="button" class="collapsible">Jan XX 2025</button>
+<div class="content">
+  <p> 
+Next class to come!
+  </p></div>
+
+
+
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
     }
+  });
+}
 </script>
 
 </body>
