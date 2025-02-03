@@ -183,6 +183,7 @@ footer{
   .content {
     padding: 0 18px;
     display: none;
+    width: 85%;
     overflow: hidden;
     background-color: #f1f1f1;
     font-family:"Space Grotesk", Arial, Helvetica, sans-serif;
