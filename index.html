@@ -9,6 +9,8 @@
     <link href="vendor/bmc3dviewer/css/bmc3dviewer.css" rel="stylesheet" />
 </head>
 
+<script type="module" src="vendor/bmc3dviewer/main.js"></script>
+
 <body>
     <header>
         MSC2006: Advanced Media Design Technologies
@@ -48,6 +50,19 @@
                     </a>
                 </div>
     </main>
+
+    <div class='bmc_3dviewer'
+    data-src='[{"path":"../3d/low-poly_bettle.glb", "name":""}]'
+    
+    data-autoload="true" 
+    data-load-button-overlay="insideBottomEdge" 
+    data-min-zoom="0.05" data-max-zoom="2.0" 
+    data-background-colour='0xa3ba4f' 
+    data-reset-view-btn="true" 
+    data-ortho-cam-size="35.0" 
+    data-key-light-intensity="9.0" 
+    data-fill-light-intensity="3.0" 
+    data-initial-orientation='{"x":-1.06e-7, "y":10, "z":0.0000100}'></div>
 
     <footer>
         &copy; stefanie jinyin wang

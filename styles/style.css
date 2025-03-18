@@ -200,4 +200,8 @@ footer{
     position: relative;
 }
 
-
+div#viewer1.bmc_3dviewer {
+    width:100%; 
+    height:500px; 
+}
+    

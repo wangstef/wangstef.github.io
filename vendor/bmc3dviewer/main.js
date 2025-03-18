@@ -529,7 +529,7 @@ class BMC_3DViewer {
                 this._camStartPos.set(parseFloat(_camStartPosArr[0]), parseFloat(_camStartPosArr[1]), parseFloat(_camStartPosArr[2]));
             }
         // Set the default size of the ortho camera
-        this.frustumSize = 5;
+        this.frustumSize = 50;
         if (this.contain.dataset.orthoCamSize) 
         {
             this.frustumSize = parseFloat(this.contain.dataset.orthoCamSize);
@@ -985,9 +985,9 @@ class BMC_3DViewer {
             this.camera.position.set(0,0,10);
         } 
         this.controls.target.setX(0);
-        this.controls.target.setY(0);
+        this.controls.target.setY(1.5);
         this.controls.target.setZ(0);
-        this.camera.lookAt(new THREE.Vector3(0,0,0));
+        this.camera.lookAt(new THREE.Vector3(0,1.5,0));
     }
     animate() {
         // console.log("*************************  Animate");
