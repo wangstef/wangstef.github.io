@@ -35,37 +35,20 @@ header{
     color: #000;
     text-align: center;
     font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    font-style: normal;
+    font-size: 60px;
+    font-style: bold;
     font-weight: 400;
     line-height: normal;
 
 
 }
 
-header2{
-    display: flex;
-    height: 256px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    align-self: stretch;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1 0 0;
-    align-self: stretch;
-
-    color: #000;
+h1{
     font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
-    font-size: 64px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
 }
 
 main{
@@ -208,3 +191,10 @@ div#viewer1.bmc_3dviewer {
     align-items: center;
 }
     
+
+.logo{
+    display: flex;
+    height: 80vh;
+    
+}
+
