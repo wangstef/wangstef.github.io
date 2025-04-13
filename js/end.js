@@ -112,7 +112,7 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         
             if (quizButton) {
                 quizButton.addEventListener("click", function () {
-                    window.location.href = "index.html"; // Redirects to index.html
+                    window.location.href = "BBY-index.html"; // Redirects to BBY-index.html
                 });
             }
         });
