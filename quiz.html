@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollMagic Animation</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+</head>
+<body>
+    <!-- Lightbox Modal -->
+<div id="quiz-lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <h2 id="header">Who do you think stole my bandana?</h2>
+        <p>Click on your animal notes to review the clues!</p>
+
+        <!-- Gallery Section -->
+        <div id="image-gallery" class="gallery-container">
+        </div>
+
+            <div class="gallery-controls">
+                <button id="prev-btn" class="gallery-btn"> </button> 
+                <button id="next-btn" class="gallery-btn"> </button>  
+                
+
+            <div class="gallery-images">
+
+                <a href="./quizimg/owl-notepad.png" data-fancybox="gallery">
+                    <img src="./quizimg/owl-notepad.png" alt="owl-notepad" class="gallery-image">
+                    </a>
+
+                <a href="./quizimg/raccoon-notepad.png" data-fancybox="gallery">
+                <img src="./quizimg/raccoon-notepad.png" alt="Notebook-Raccoon" class="gallery-image">
+                </a>
+
+                <a href="./quizimg/toad-notepad.png" data-fancybox="gallery">
+                    <img src="./quizimg/toad-notepad.png" alt="toad-notepad" class="gallery-image">
+                    </a>
+
+                <!-- Add more images here -->
+            </div>
+        </div>
+
+        <!-- Quiz Form -->
+        <form id="quiz-form">
+            <div class="quiz-options">
+
+                <!-- Animal icons as options -->
+                <label class="quiz-option">
+                    <input type="radio" name="quiz" value="Owl" data-correct="false">
+                    <img src="./quizimg/Owl_Quiz.png" alt="Owl" class="animal-icon"  data-sound="./audio/owl.mp3">
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz" value="Raccoon" data-correct="true">
+                    <img src="./quizimg/Raccoon_Quiz.png" alt="Raccoon" class="animal-icon"  data-sound="./audio/raccoon.mp3">
+                </label>
+                <label class="quiz-option">
+                    <input type="radio"name="quiz" value="Toad" data-correct="false">
+                    <img src="./quizimg/Toad_Quiz.png" alt="Toad" class="animal-icon"  data-sound="./audio/toad.mp3">
+                </label>
+
+            </div>
+            <img src="./quizimg/Submit.png" alt="Submit" id="submit-button" style="cursor: pointer;"> <!-- Submit image -->
+        </form>
+       
+       
+
+        <div id="result"></div>
+        <a href="end.html">
+            <img src="./quizimg/Continue.png" alt="Continue" id="quiz-button" style="display: none; cursor: pointer;">
+        </a>
+       
+    </div>
+   
+</div>
+
+
+
+<!-- Full-Screen Gallery Modal -->
+<div id="full-screen-gallery" class="full-screen-gallery">
+    <span id="close-fullscreen" class="close-btn">&times;</span>
+    <div class="full-screen-gallery-content">
+        <img id="full-screen-img" src="" alt="Full-Screen Image" class="full-screen-image" />
+    </div>
+</div>
+
+    <script src="./js/quiz.js"></script>
+
+
+
+</body>
+
+</html> 

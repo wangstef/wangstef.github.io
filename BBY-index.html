@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beanie's Backyard 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/BBY-styles.css">
+
+    <!-- Lightbox -->
+      <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+</head>
+<body>
+
+   <!-- Audio elements -->
+   <audio id="bg-music" loop>
+    <source src="./audio/BG music.mp3" type="audio/mpeg">
+</audio>
+
+ <!-- Container for sound controls -->
+    <div id="sound-controls">
+        <!-- Sound icons for each toggle -->
+        <div id="sound-icon" class="sound-on" onclick="toggleBackgroundMusic()"></div> <!-- For BG Music -->
+        <div id="sfx-icon" class="sound-on" onclick="toggleSFX()"></div> <!-- For SFX -->
+        <div id="narration-icon" class="sound-on" onclick="toggleNarration()"></div> <!-- For Narration -->
+    </div>
+
+    
+    <!-- Opening -->
+    <img id="sky" src="./img/Background-Gradient.png" alt="A blue and purple watercolour gradient for the sky">
+    <img id="opening-text" src="./text/Text_title page.png" alt="Title text reading Beanie's Backyard 2025">
+    <img id="scroll" src="./img/ScrollDown.png" alt="Title text reading Beanie's Backyard 2025">
+    <img class="paw" id="paw1" src="./titlecardimg/BY_Paw_18.png" alt="paw print image appears">
+    <img class="paw" id="paw2" src="./titlecardimg/BY_Paw_17.png" alt="paw print image appears">
+    <img class="paw" id="paw3" src="./titlecardimg/BY_Paw_16.png" alt="paw print image appears">
+    <img class="paw" id="paw4" src="./titlecardimg/BY_Paw_15.png" alt="paw print image appears">
+    <img class="paw" id="paw5" src="./titlecardimg/BY_Paw_14.png" alt="paw print image appears">
+    <img class="paw" id="paw6" src="./titlecardimg/BY_Paw_13.png" alt="paw print image appears">
+    <img class="paw" id="paw7" src="./titlecardimg/BY_Paw_12.png" alt="paw print image appears">
+    <img class="paw" id="paw8" src="./titlecardimg/BY_Paw_11.png" alt="paw print image appears">
+    <img class="paw" id="paw9" src="./titlecardimg/BY_Paw_10.png" alt="paw print image appears">
+    <img class="paw" id="paw10" src="./titlecardimg/BY_Paw_9.png" alt="paw print image appears">
+    <img class="paw" id="paw11" src="./titlecardimg/BY_Paw_8.png" alt="paw print image appears">
+    <img class="paw" id="paw12" src="./titlecardimg/BY_Paw_7.png" alt="paw print image appears">
+    <img class="paw" id="paw13" src="./titlecardimg/BY_Paw_6.png" alt="paw print image appears">
+    <img class="paw" id="paw14" src="./titlecardimg/BY_Paw_5.png" alt="paw print image appears">
+    <img class="paw" id="paw15" src="./titlecardimg/BY_Paw_4.png" alt="paw print image appears">
+    <img class="paw" id="paw16" src="./titlecardimg/BY_Paw_3.png" alt="paw print image appears">
+    <img class="paw" id="paw17" src="./titlecardimg/BY_Paw_2.png" alt="paw print image appears">
+    <img class="paw" id="paw18" src="./titlecardimg/BY_Paw_1.png" alt="paw print image appears">
+   
+    <img class="text" src="text/Text_scene 1_1.png" alt="An arrow pulses at the bottom of the page indicating user to scroll down">
+
+    <img class="text" id="text1_1" src="./text/Text_scene 1_1.png" alt="Moving Image">
+    <img class="text" id="text1_2" src="./text/Text_scene 1_2.png" alt="Moving Image">
+    
+    
+
+    <!-- Divider that contains all the animated images -->
+    <div class="container"> 
+        
+        
+        <!-- ORDER of the following matters!!! bottom to top-->
+    
+        <!--  Scene 5 --> 
+        <img id="Tree-Right3" src="./img/Tree-Right-Flipped.png" alt="A bushy tree to the right ">
+        <img id="Bush-Left4" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Bush-Right3" src="./img/Bush-Right.png" alt="A small cluster of bushes to the right">
+
+        <img id="Tree-Right2" src="./img/Tree-Right.png" alt="A bushy tree to the right ">
+        <img id="Bush-Right2" src="./img/Bush-Right.png" alt="A small cluster of bushes to the right">
+
+        <!-- Moving tree and bush to reveal beanie -->
+        <img id="Tree-Middle2b" src="./img/Tree-Middle.png" alt="A large tree trunk in the middle of the scene, it expands past the top of the page">
+        <img id="Bush-Left2b" src="./img/Bush-Left.png" alt="A large bush to the left">
+        <img id="Beanie-behind-tailup" src="./endimg/Beanie_sad_outside_tailup.png" alt="Beanie the dog, a small brown dog with a white belly and a wagging tail">    
+        <img id="Beanie-behind" src="./endimg/Beanie_sad_outside_taildown.png" alt="Beanie the dog, a small brown dog with a white belly and a wagging tail">    
+        <img id="Tree-Middle2" src="./img/Tree-Middle.png" alt="A large tree trunk in the middle of the scene, it expands past the top of the page">
+        <img id="Bush-Left2" src="./img/Bush-Left.png" alt="A large bush to the right">
+
+        <img id="Bush-Left3" src="./img/Bush-Left.png" alt="Moving Image">
+        <!-- black tree to the left -->
+        <img id="Tree-Left2" src="./img/Tree-Left.png" alt="A bushy tree to the left">
+        <!-- text -->
+        <img class="text" id="text5A" src="./text/Text_scene 5A.png" alt="Text appears it reads Beanie! There you are I have been looking for you">       
+        <img class="text" id="text5B_1" src="./text/Text_scene 5B_1.png" alt="Text appears it reads I still can't find my bandana! I just know a sneaky little animal took it into the woods,">       
+        <img class="text" id="text5B_2" src="./text/Text_scene 5B_2.png" alt="Text appears it reads But what was their name again?">       
+        <img class="text" id="text5C" src="./text/Text_scene 5C.png" alt="Text appears it reads Can you tell me what they look like? Maybe I can help!">       
+        <img class="text" id="text5D_1" src="./text/Text_scene 5D_1.png" alt="Text appears it reads The one with the furry coat,">       
+        <img class="text" id="text5D_2" src="./text/Text_scene 5D_2.png" alt="Text appears it reads bushy striped tail">       
+        <img class="text" id="text5D_3" src="./text/Text_scene 5D_3.png" alt="Text appears it reads and dark mask hiding it's eyes!">       
+
+
+
+        <!--Scene 3 and 4--> 
+        <!-- <div class="sky"></div> test gradient behind everything, test to see if I can use div in the js = yes we can! -->
+        <img id="BG" src="./img/BG.png" alt="A blue and purple watercolour gradient for the sky">
+        <img id="Tree-Right" src="./img/Tree-Right.png" alt="Moving Image">
+        <img id="Bush-Right" src="./img/Bush-Right.png" alt="Moving Image">
+        <img id="Tree-Middle" src="./img/Tree-Middle.png" alt="Moving Image">
+        <img id="Puddle" src="./img/Puddle.png" alt="A small puddle">
+        <img id="Raccoon" src="./img/Raccoon.png" alt="Moving Image">
+        <img id="Bush-Left" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Tree-Left" src="./img/Tree-Left.png" alt="Moving Image">
+         <!-- text -->
+         <img class="text" id="text4D_2" src="./text/Text_scene 4D_2.png" alt="Text appears it reads ">       
+         <img class="text" id="text4D_1" src="./text/Text_scene 4D_1.png" alt="Text appears it reads ">       
+         <img class="text" id="text4C" src="./text/Text_scene 4C.png" alt="Text appears it reads ">       
+         <img class="text" id="text4B" src="./text/Text_scene 4B.png" alt="Text appears it reads ">       
+         <img class="text" id="text4A" src="./text/Text_scene 4A.png" alt="Text appears it reads ">       
+         <img class="s-text" id="text3B" src="./text/Text_scene 3B.png" alt="Text appears it reads Hurry! We have to go find Beanie and his beloved Bandana!">    
+         <img class="s-text" id="text3A" src="./text/Text_scene 3A.png" alt="Text appears it reads No, Beanie! Wait!"> 
+
+
+        <img id="Notebook-Raccoon" src="./img/Notebook-Raccoon.png" alt="A notebook open to a page with information about the Raccoon">
+       
+        
+       <!-- Scene 2-->
+       <img id="Beanie-tail" src="./endimg/Beanie_sad_outside_tailup.png" alt="Beanie the dog, a small brown dog with a white belly and a wagging tail">    
+        <img id="House" src="./img/House.png" alt="This is the background image of the inside of the house, the front door is in the center of the scene">
+        <img id="Beanie-sad" src="./endimg/Beanie_sad_inside_taildown.png" alt="Beanie the dog, a small brown dog with a white belly and a wagging tail">    
+        <img id="fade-to-black" src="./img/Very_Black_screen.jpg" alt="A black screen that fades in and out">
+        <!-- text -->
+        <img class="text" id="text2_1B" src="./text/Text_scene 2_1.png" alt="Text appears it reads Arf! Arf!">
+        <img class="text" id="text2_1" src="./text/Text_scene 2_1.png" alt="Text appears it reads Arf! Arf!">
+        <img class="text" id="text2_2" src="./text/Text_scene 2_2.png" alt="Text appears it reads What? Your bandana was stolen?">
+        
+        <button id="quiz-button" alt="Who could have done it?"></button>
+
+        <!--
+                <div class="button_container">
+            <a href="quiz.html">
+                <button class="button" id="quiz_button"> Who could it be?</button>
+            </a>
+        </div>
+        -->
+
+        
+    </div>
+    
+
+    <!-- Libraries so that the scroll magic works... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+    <script src="./js/BBY-script.js"></script>
+
+</body>
+</html>
