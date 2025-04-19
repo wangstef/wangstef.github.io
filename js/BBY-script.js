@@ -367,13 +367,13 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 //pinning the scene
 .to("#Raccoon", { duration: 200, ease: "power1.inOut" })
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-48vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1" )
+        .to("#Notebook-Raccoon", { y: "-48vw", scale: 1.5, duration: 300, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1" )
         //pinning the notebook
         .to("#Notebook-Raccoon", { duration: 500, ease: "power1.inOut" } )
         .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 300, ease: "power1.inOut" }, "notebook2" )
         
           //text 4C fades in and out
-          .to("#text4C", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(HelloRaccoon) },"text4C")
+          .to("#text4C", { opacity: 1, duration: 300,   ease: "power1.inOut", onStart: () => playSound(HelloRaccoon) },"text4C")
           .to("#text4C", { duration: 200, ease: "power1.inOut" } )
           .to("#text4C", { opacity: 0, duration: 200,   ease: "power1.inOut" })
 
