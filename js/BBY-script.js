@@ -80,7 +80,7 @@ const sfxSounds = [
 ];
 
 const narrationSounds = [
-    What, nobeaniewait, Hurry, Thereyouare, StopSinging, DunkDinner, letmeeat, CanYouTellMe, HelloRaccoon
+    What, nobeaniewait, Hurry, Thereyouare, StopSinging, DunkDinner, justkeepwalking, letmeeat, CanYouTellMe, HelloRaccoon
 ];
 
 // Sound toggles
@@ -256,7 +256,7 @@ timeline.to("#opening-text", {
     }
 }, "title")
 
-.to("#sky", {y:"-100vh", duration: 200, ease: "power1.inOut"})
+.to("#sky", {y:"-100vh", duration: 100, ease: "power1.inOut"})
 //text 1_1 fades in and out
 .to("#text1_1", { opacity: 1, duration: 200, ease: "power1.inOut", onStart: () => playSound(waterdroplets) },"text1_1")
 .to("#text1_1", { duration: 400, ease: "power1.inOut" } )
@@ -396,7 +396,8 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
             yoyo: true, 
             ease: "sine.inOut" },"text4D_2")
           .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
-    
+            
+          //let me eat in peace
           .to("#text4D_2", { duration: 200, ease: "power1.inOut" })
           //text 4D fades together
           .to("#text4D_2", { opacity: 0, duration: 200,   ease: "power1.inOut" }, "text4Dfadeout")
@@ -417,16 +418,16 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 // Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
-    duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Bush-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Tree-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" ) //y position change so it goes higher
-        .to("#Tree-Middle2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Bush-Left3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Tree-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Bush-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Bush-Left4", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
-        .to("#Beanie-behind", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+    duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Right2", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Right2", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" ) //y position change so it goes higher
+        .to("#Tree-Middle2", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Left3", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Right3", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Right3", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Left4", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
+        .to("#Beanie-behind", { scale: 1.5, duration: 500, ease: "power1.inOut" }, "move1" )
         
         
 
@@ -566,7 +567,7 @@ var scene = new ScrollMagic.Scene({
 
 
 
-let scrollSpeed = 0.05; // Lower = slower scroll speed
+let scrollSpeed = 0.005; // Lower = slower scroll speed
 let targetScroll = window.scrollY;
 let currentScroll = window.scrollY;
 let isAnimating = false;
@@ -574,7 +575,7 @@ let isAnimating = false;
 // Handle smooth scrolling when using mouse wheel or trackpad
 window.addEventListener("wheel", (e) => {
     e.preventDefault(); // Prevent default abrupt scrolling
-    targetScroll += e.deltaY * scrollSpeed * 5; // Adjust multiplier for speed
+    targetScroll += e.deltaY * scrollSpeed * 10; // Adjust multiplier for speed
     if (!isAnimating) {
         smoothScroll();
     }
