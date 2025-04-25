@@ -88,7 +88,7 @@ footer{
 
 .row{
     display: flex;
-    padding: 10px;
+    padding: 5px;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -102,7 +102,7 @@ footer{
     width: 300px;
     height: 300px;
     border-radius: 32px;
-    background: #171f77;
+    background: #ffffff;
     box-shadow: 147px 132px 55px 0px rgba(0, 0, 0, 0.00), 94px 84px 51px 0px rgba(0, 0, 0, 0.01), 53px 47px 43px 0px rgba(0, 0, 0, 0.05), 24px 21px 32px 0px rgba(0, 0, 0, 0.09), 6px 5px 17px 0px rgba(0, 0, 0, 0.10);
     /*overflow hides content outside of curved box bounds*/
     overflow: hidden;
