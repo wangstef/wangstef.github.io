@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    background-color: rgb(255, 255, 255); /* Background color pink so we can see if it is peaking through*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+
+}
+
+
+.Mainmenutitle{
+    display:flex;
+    width: 100%; /* Adjust size */
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    position: relative;
+    height: 100vh; /* Adjust size of the area that the images will be contained in*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
