@@ -1,0 +1,324 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+  
+  
+  .logo {
+    width: 200px;
+    animation: fadeOut 3s ease-out forwards;
+    animation-delay: 2s;
+  }
+  
+  #main-menu {
+    display: none;
+    text-align: center;
+    padding-top: 20vh;
+  }
+  
+  #main-menu nav a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  #main-menu nav a:hover {
+    background: #004999;
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  
+
+  /* Chapter styles */
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+  
+  .chapter-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+    user-select: none;
+  }
+  
+  .arrow.left {
+    left: 1rem;
+  }
+  
+  .arrow.right {
+    right: 1rem;
+  }
+
+   /* Lightbox */
+  .page-button {
+    position: absolute;
+    bottom: 40%;
+    left: 70%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+  }
+  
+  .lightbox {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 999;
+  }
+  
+  .lightbox-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .close-btn {
+    position: relative;
+    top: 0; left: 95%;
+    font-size: 2rem;
+    color: white;
+    background: rgba(255, 27, 27, 0.5);
+    border-radius: 30px;
+    max-width: 35px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+
+  /* Textbox */
+  .text-box {
+    position: absolute;
+    bottom: 5rem;
+    left: 5rem;
+    right: 5rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    z-index: 3;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  /* Toggle switch */
+  .toggle-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    z-index: 1000;
+  }
+  .toggle-switch input { display: none; }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; width: 26px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+
+
+  /* UI */
+  /* Main menu button */
+  .menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+.menu-button:hover {
+  background-color: #005fa3;
+}
+
+/* Main menu modal confirmation popup */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+.menu-button:hover {
+  background-color: #005fa3;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.modal-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal-button.confirm {
+  background-color: #0077cc;
+  color: white;
+}
+.modal-button.cancel {
+  background-color: #ccc;
+}
+.modal-button:hover {
+  opacity: 0.9;
+}
+
+
+/* Progress bar pages: Dots */
+.text-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #333;
+  z-index: 3;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+  background-color: #007bff; /* Or match your theme */
+}
