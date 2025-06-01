@@ -17,7 +17,14 @@ const pages = [
         showTextBox: false,
         text: ""
     }
+     {
+        img: "../img/images/Non journey/Ch 2 c.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    }
   ];
+
   
   let currentPage = 0;
   

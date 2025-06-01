@@ -1,26 +1,38 @@
+/* Your Original styles.css content starts here */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: sans-serif;
     background: #f4f4f4;
-    overflow: hidden;
-  }
-  
-  
-  .logo {
-    width: 200px;
+    overflow: hidden; /* Allow vertical scroll, prevent horizontal */
+}
+ 
+#splash-screen { /* Added from your description, ensure it's styled if used */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff; /* Example background */
+    position: fixed;
+    z-index: 3000; /* Very high z-index */
+    /* Add animation for fadeOut if splash-screen itself fades */
+}
+
+.logo {
+    width: 200px; /* Or your desired size */
     animation: fadeOut 3s ease-out forwards;
-    animation-delay: 2s;
-  }
-  
-  #main-menu {
-    display: none;
+    animation-delay: 2s; /* Ensure this is for the logo within the splash */
+}
+ 
+#main-menu {
+    /* display: none; */ /* Should be controlled by JS removing a 'hidden' class */
     text-align: center;
-    padding-top: 20vh;
-  }
-  
-  #main-menu nav a {
+    padding-top: 20vh; /* Or adjust as needed */
+}
+ 
+#main-menu nav a {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
@@ -29,74 +41,67 @@ body, html {
     text-decoration: none;
     border-radius: 8px;
     transition: background 0.3s;
-  }
-  
-  #main-menu nav a:hover {
+}
+ 
+#main-menu nav a:hover {
     background: #004999;
-  }
-  
-  @keyframes fadeOut {
+}
+ 
+@keyframes fadeOut {
     to {
       opacity: 0;
       visibility: hidden;
     }
-  }
-  
-  .hidden {
-    display: none;
-  }
+}
+ 
+.hidden {
+    display: none !important; /* Make sure hidden class always hides */
+}
 
-  
-
-  /* Chapter styles */
-  body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: sans-serif;
-  }
-  
-  .chapter-container {
+/* Chapter styles */
+.chapter-container {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .background-img {
+    min-height: 100vh; /* Use min-height to accommodate content and nav bar */
+    overflow-x: hidden;
+    padding-bottom: 80px; /* Add padding at the bottom for the fixed nav bar space */
+}
+ 
+.background-img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
-  }
-  
-  .arrow {
+    z-index: 0; /* Ensure it's behind content */
+}
+ 
+.arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 3rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    color: rgb(20, 97, 190);
     padding: 1rem;
     cursor: pointer;
-    z-index: 2;
+    z-index: 2; /* Above background, below popups if any */
     user-select: none;
-  }
-  
-  .arrow.left {
+    transition: background-color 0.3s, color 0.3s; /* Added transition */
+}
+ 
+.arrow.left {
     left: 1rem;
-  }
-  
-  .arrow.right {
+}
+ 
+.arrow.right {
     right: 1rem;
-  }
+}
 
-   /* Lightbox */
-  .page-button {
-    position: absolute;
-    bottom: 40%;
-    left: 70%;
+/* Lightbox */
+.page-button {
+    position: absolute; /* This might need adjustment based on overall layout */
+    bottom: 40%; /* Example position */
+    left: 70%;   /* Example position */
     padding: 12px 20px;
     font-size: 1rem;
     background-color: #007bff;
@@ -105,82 +110,88 @@ body, html {
     border-radius: 8px;
     cursor: pointer;
     z-index: 2;
-    display: none;
-  }
-  
-  .lightbox {
-    position: absolute;
+    /* display: none; */ /* Controlled by JS */
+}
+ 
+.lightbox {
+    position: fixed; /* Use fixed for full screen overlay */
     top: 0; 
     left: 0;
     width: 100%; 
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 999;
-  }
-  
-  .lightbox-content {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 999; /* High z-index for lightbox */
+}
+ 
+.lightbox-content {
     background: white;
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
     max-width: 90%;
     max-height: 90%;
-  }
-  
-  .close-btn {
-    position: relative;
-    top: 0; left: 95%;
+    position: relative; /* For close button positioning */
+}
+ 
+.close-btn {
+    position: absolute; /* Position relative to lightbox-content */
+    top: 10px; 
+    right: 15px;
     font-size: 2rem;
-    color: white;
-    background: rgba(255, 27, 27, 0.5);
+    color: #333; /* Darker close button for contrast on white */
+    /* background: rgba(255, 27, 27, 0.5); */ /* Optional background */
     border-radius: 30px;
-    max-width: 35px;
+    /* max-width: 35px; */
+    line-height: 1;
+    padding: 0 5px;
     cursor: pointer;
-    z-index: 1000;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-
-  /* Textbox */
-  .text-box {
+    z-index: 1000; /* Above lightbox content */
+}
+ 
+/* Textbox */
+.text-box {
     position: absolute;
-    bottom: 5rem;
-    left: 5rem;
-    right: 5rem;
+    bottom: 10rem; /* Adjust if it overlaps with new nav bar */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 4rem); /* Max width with padding */
+    max-width: 800px; /* Max width for readability */
     background: rgba(255, 255, 255, 0.9);
     padding: 1.2rem;
     border-radius: 12px;
     font-size: 1rem;
     color: #333;
-    z-index: 3;
+    z-index: 3; /* Above background image */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    text-align: center;
-  }
-  
-  /* Toggle switch */
-  .toggle-switch {
+    text-align: center; /* Text content should be centered if desired */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+ 
+/* Toggle switch */
+.toggle-switch {
     position: fixed;
     top: 20px;
     right: 20px;
     display: inline-block;
     width: 60px;
     height: 34px;
-    z-index: 1000;
-  }
-  .toggle-switch input { display: none; }
-  .slider {
+    z-index: 1000; /* Ensure it's above most content */
+}
+.toggle-switch input { display: none; }
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: #ccc;
     transition: .4s;
     border-radius: 34px;
-  }
-  .slider:before {
+}
+.slider:before {
     position: absolute;
     content: "";
     height: 26px; width: 26px;
@@ -188,137 +199,271 @@ body, html {
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-  }
-  input:checked + .slider {
+}
+input:checked + .slider {
     background-color: #2196F3;
-  }
-  input:checked + .slider:before {
+}
+input:checked + .slider:before {
     transform: translateX(26px);
-  }
-  
-
-
-  /* UI */
-  /* Main menu button */
-  .menu-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 10px 16px;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1000;
-  transition: background-color 0.3s;
+}
+ 
+/* UI - Main menu button */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000; /* Consistent z-index */
+    transition: background-color 0.3s;
 }
 .menu-button:hover {
-  background-color: #005fa3;
+    background-color: #005fa3;
 }
 
 /* Main menu modal confirmation popup */
-.menu-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 10px 16px;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1000;
-  transition: background-color 0.3s;
-}
-.menu-button:hover {
-  background-color: #005fa3;
-}
-
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hidden {
-  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000; /* Higher than other UI elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-box {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .modal-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 .modal-button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
 }
 .modal-button.confirm {
-  background-color: #0077cc;
-  color: white;
+    background-color: #0077cc;
+    color: white;
 }
 .modal-button.cancel {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 .modal-button:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
-
-/* Progress bar pages: Dots */
-.text-box {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1.2rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  color: #333;
-  z-index: 3;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* Progress bar pages: Dots (inside text-box) */
 .progress-bar {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .progress-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ccc;
-  transition: background-color 0.3s ease;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
 }
 
 .progress-dot.active {
-  background-color: #007bff; /* Or match your theme */
+    background-color: #007bff; /* Or match your theme */
+}
+
+/* END OF YOUR ORIGINAL STYLES - NEW/UPDATED NAVIGATION STYLES BELOW */
+/* -------------------------------------------------------------------- */
+
+/* Updated Chapter Navigation Bar Container */
+#chapter-nav-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+    padding: 8px 0; 
+    z-index: 150; /* Above page content, below modals */
+    text-align: center;
+
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    /* border-top: 1px solid #CECABE;  */
+}
+
+#chapter-nav-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chapter-nav-container ul li {
+    margin: 0 5px; 
+    position: relative; /* For popup positioning */
+}
+
+/* New Button Styles */
+#chapter-nav-container ul li a {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F3EF; /* Light cream/beige button background */
+    color: #ca5405; 
+    text-decoration: none;
+    padding: 10px 18px; 
+    border-radius: 25px; 
+    border: 5px solid #ca5405; 
+    font-weight:bold; 
+    letter-spacing: 0.5px;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+    min-width: 80px; 
+    white-space: nowrap; 
+}
+
+/* Hover Effect for Buttons */
+#chapter-nav-container ul li a:hover {
+    background-color: #ffde96; /* Brownish tan hover */
+    color: #ca5405; 
+    border-color: #ffffff; 
+}
+
+/* Active Button Style */
+#chapter-nav-container ul li a.active,
+#chapter-nav-container ul li a.active-parent { /* Style for parent of an active sub-item */
+    background-color: #ca5405; /* Muted brown active color */
+    color: #FFFFFF; 
+    border-color: #ca5405; 
+    font-weight: 700;
+}
+
+/* Icon Styling (for popup arrows) */
+.nav-icon.popup-icon {
+    margin-left: 8px; /* Space between text and icon */
+    font-size: 0.8em; /* Slightly smaller icon */
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Change icon direction when popup is open */
+.has-popup.popup-open > a > .nav-icon.popup-icon {
+    transform: rotate(180deg); /* Points downward when open, if initial is upward arrow */
+}
+
+
+/* --- Popup Menu Styles --- */
+.popup-menu {
+    opacity: 0; /* Initially hidden */ 
+    position: absolute;
+    bottom: calc(100% + 5px); /* Position above the button with a 5px gap */
+    left: 50%;
+    transform: translateX(-50%); 
+    min-width: 190px; 
+    background-color: #FFB74D; /* Orange background */
+    border-radius: 6px;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.15); /* Shadow adjusted for upward menu */
+    z-index: 160; 
+    padding: 8px 0;
+    flex-direction: column;
+    /* margin-bottom: 5px; /* Already handled by bottom calc */
+}
+
+.has-popup.popup-open > .popup-menu {
+    opacity: 1; 
+}
+
+.popup-menu li {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+}
+
+.popup-menu li a {
+    display: block;
+    padding: 10px 18px; /* Consistent padding */
+    color: #deb736; 
+    background-color: transparent; 
+    text-decoration: none;
+    white-space: nowrap;
+    border: none; 
+    border-radius: 0; 
+    text-align: left; 
+    font-weight: normal; 
+    letter-spacing: normal; /* Reset letter spacing from parent */
+    min-width: auto; /* Reset min-width */
+}
+
+.popup-menu li a:hover {
+    background-color: #FFA726; /* Slightly darker orange on hover */
+    color: #FFFFFF; /* Ensure text remains white */
+}
+
+.popup-menu li a.active-sub-item {
+    background-color: #FB8C00; /* Even darker orange for active sub-item */
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Path-specific/Journey-specific theming for nav bar (examples) */
+/* These can override the default nav bar styles if needed */
+.path-splitcraniectomy #chapter-nav-container {
+    background-color: #4a334a; /* Different bar color for split path */
+    border-top-color: #3c2a3c;
+}
+.path-splitcraniectomy #chapter-nav-container ul li a {
+    /* background-color: #yourColor; color: #yourColor; */
+}
+.path-splitcraniectomy #chapter-nav-container ul li a:hover {
+    /* background-color: #yourHoverColor; */
+}
+.path-splitcraniectomy #chapter-nav-container ul li a.active {
+    background-color: #946194;
+    border-color: #7a417a;
+}
+/* Arrows for path-splitcraniectomy would be styled like before */
+.path-splitcraniectomy .arrow { 
+    background-color: rgba(148, 97, 148, 0.7); 
+    color: white;
+}
+
+.path-cranialvaultadvanced #chapter-nav-container {
+    background-color: #334a4a; 
+    border-top-color: #2a3c3c;
+}
+.path-cranialvaultadvanced #chapter-nav-container ul li a.active {
+    background-color: #619494;
+    border-color: #417a7a;
+}
+.path-cranialvaultadvanced .arrow {
+    background-color: rgba(97, 148, 148, 0.7); 
+    color: white;
+}
+
+/* Journey specific styling for Ch1/2 if desired */
+.journey-endoscopic #chapter-nav-container {
+    /* background-color: #E0DED8; /* Default, or specific if needed */
+}
+.journey-cranialvault #chapter-nav-container {
+    /* background-color: #yourColor; /* Specific for cranial vault bar if different */
 }
