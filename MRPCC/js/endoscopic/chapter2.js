@@ -17,16 +17,29 @@ const pages = [
         showTextBox: false,
         text: ""
     }
-     {
-        img: "../img/images/Non journey/Ch 2 c.png",
-        showButton: false,
-        showTextBox: false,
-        text: ""
-    }
   ];
 
   
   let currentPage = 0;
+
+  //Necessary to determine the current page based on URL hash
+  if (window.location.hash && window.location.hash.startsWith("#page")) {
+    // console.log("Hash found, attempting to parse...");
+    const pageFromHash = parseInt(window.location.hash.substring(5)); // Extracts number after "#page"
+    // console.log("Parsed pageFromHash:", pageFromHash);
+
+    if (!isNaN(pageFromHash) && pageFromHash >= 0 && pageFromHash < pages.length) {
+        currentPage = pageFromHash;
+        // console.log("currentPage successfully set from hash:", currentPage);
+    } else {
+        // console.warn("pageFromHash is invalid or out of bounds. Sticking with default currentPage.", pageFromHash);
+        // Fallback to currentPage = 0 is already handled by initial declaration.
+    }
+} else {
+    // console.log("No '#page' hash found in URL, or hash is not for a page. Using default currentPage.");
+}
+// console.log("Final currentPage before initial renderPage() call:", currentPage);
+
   
   const backgroundImg = document.getElementById("backgroundImg");
   const infoButton = document.getElementById("infoButton");
@@ -67,15 +80,22 @@ const pages = [
     window.location.hash = "#page" + currentPage;
   }  
   
+
+  //next page and end of chapter 2
   function nextPage() {
     if (currentPage < pages.length - 1) {
-      currentPage++;
-      renderPage();
+        currentPage++;
+        if (typeof renderPage === "function") { // Ensure renderPage is defined
+            renderPage();
+        } else {
+            console.error("renderPage function is not defined in this chapter script.");
+        }
     } else {
-      // Go to next chapter
-      window.location.href = "chapter2.html";
+        // End of Chapter 2 - Redirect to the dedicated path selection page
+        // The path_selection.html is in the root, so '../' from 'endoscopic/' or 'cranialvault/'
+        window.location.href = "../path_selection.html";
     }
-  }
+}
   
   function prevPage() {
     if (currentPage > 0) {
