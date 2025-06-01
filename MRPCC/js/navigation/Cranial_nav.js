@@ -188,26 +188,48 @@ document.addEventListener('DOMContentLoaded', function () {
         ul.appendChild(li);
     });
 
-    navElement.appendChild(ul);
-    navContainer.innerHTML = ''; 
-    navContainer.appendChild(navElement);
+ navElement.appendChild(ul);
+    navContainer.innerHTML = ''; 
+    navContainer.appendChild(navElement);
 
-    // Event listeners for HOVER popups (only for non-intercepted links)
-    document.querySelectorAll('.has-popup').forEach(popupLi => {
-        const mainLink = popupLi.querySelector('a');
-        // Only attach hover listeners if the link is NOT intercepted for path choice
-        if (mainLink && mainLink.getAttribute('href') !== 'javascript:void(0);') {
-            const popupMenu = popupLi.querySelector('.popup-menu');
-            if (!popupMenu) return;
+ // REVISED Event listeners for popups: With delay and better hover area handling
+    document.querySelectorAll('.has-popup').forEach(popupLi => {
+        const mainLink = popupLi.querySelector('a:not([href="javascript:void(0);"])');
+        const popupMenu = popupLi.querySelector('.popup-menu');
+        let closeTimer = null; // Timer variable scoped to each .has-popup element
 
-            popupLi.addEventListener('mouseenter', function() {
-                this.classList.add('popup-open');
-            });
-            popupLi.addEventListener('mouseleave', function() {
-                this.classList.remove('popup-open');
-            });
-        }
-    });
+        if (mainLink && popupMenu) {
+            const showMenu = () => {
+                if (closeTimer) {
+                    clearTimeout(closeTimer);
+                    closeTimer = null;
+                }
+                popupLi.classList.add('popup-open');
+            };
+
+            const hideMenu = () => {
+                popupLi.classList.remove('popup-open');
+            };
+
+            const startHideTimer = () => {
+                if (closeTimer) { // Clear existing timer if one was already set
+                    clearTimeout(closeTimer);
+                }
+                closeTimer = setTimeout(hideMenu, 250); // Adjust delay as needed (e.g., 250ms)
+            };
+
+            // When mouse enters the main link: show menu, cancel any pending close
+            mainLink.addEventListener('mouseenter', showMenu);
+            // When mouse leaves the main link: start a timer to close the menu
+            mainLink.addEventListener('mouseleave', startHideTimer);
+
+            // When mouse enters the popup menu itself: show menu, cancel any pending close
+            // This is key to allow moving from the link to the menu
+            popupMenu.addEventListener('mouseenter', showMenu);
+            // When mouse leaves the popup menu: start a timer to close the menu
+            popupMenu.addEventListener('mouseleave', startHideTimer);
+        }
+    });
     
     // Apply body class for theming
     document.body.className = document.body.className.replace(/\b(path-|journey-)[a-zA-Z0-9_-]+\b/g, '');
