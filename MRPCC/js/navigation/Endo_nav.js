@@ -1,8 +1,8 @@
 // js/navigation.js
 document.addEventListener('DOMContentLoaded', function () {
-    const navContainer = document.getElementById('chapter-nav-container');
+    const navContainer = document.getElementById('chapter-nav-container-endo');
     if (!navContainer) {
-        console.error("Chapter navigation container (#chapter-nav-container) not found in HTML.");
+        console.error("Chapter navigation container (#chapter-nav-container-endo) not found in HTML.");
         return;
     }
 
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Chapter Definitions (IDs are important for this logic)
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "welcome.html", type: "dual" },
+        { id: 1, name: "Welcome", file: "../endoscopic/chapter1.html", type: "dual" },
         {
-            id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
+            id: 2, name: "Intro", file: "../endoscopic/chapter2.html", type: "dual", hasPopup: true,
             popup: [
                 { name: "Pronunciation", file: "intro_pronunciation.html" },
                 { name: "Animation", file: "intro_animation.html" },

@@ -294,8 +294,8 @@ input:checked + .slider:before {
 /* END OF YOUR ORIGINAL STYLES - NEW/UPDATED NAVIGATION STYLES BELOW */
 /* -------------------------------------------------------------------- */
 
-/* Updated Chapter Navigation Bar Container */
-#chapter-nav-container {
+/* Updated Chapter Navigation Bar Container ENDO*/
+#chapter-nav-container-endo {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -309,7 +309,7 @@ input:checked + .slider:before {
     /* border-top: 1px solid #CECABE;  */
 }
 
-#chapter-nav-container ul {
+#chapter-nav-container-endo ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -318,13 +318,13 @@ input:checked + .slider:before {
     align-items: center;
 }
 
-#chapter-nav-container ul li {
+#chapter-nav-container-endo ul li {
     margin: 0 5px; 
     position: relative; /* For popup positioning */
 }
 
 /* New Button Styles */
-#chapter-nav-container ul li a {
+#chapter-nav-container-endo ul li a {
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -342,15 +342,15 @@ input:checked + .slider:before {
 }
 
 /* Hover Effect for Buttons */
-#chapter-nav-container ul li a:hover {
+#chapter-nav-container-endo ul li a:hover {
     background-color: #ffde96; /* Brownish tan hover */
     color: #ca5405; 
     border-color: #ffffff; 
 }
 
 /* Active Button Style */
-#chapter-nav-container ul li a.active,
-#chapter-nav-container ul li a.active-parent { /* Style for parent of an active sub-item */
+#chapter-nav-container-endo ul li a.active,
+#chapter-nav-container-endo ul li a.active-parent { /* Style for parent of an active sub-item */
     background-color: #ca5405; /* Muted brown active color */
     color: #FFFFFF; 
     border-color: #ca5405; 
