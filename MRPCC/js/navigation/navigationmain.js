@@ -1,8 +1,8 @@
 // js/navigation.js
 document.addEventListener('DOMContentLoaded', function () {
-    const navContainer = document.getElementById('chapter-nav-container');
+    const navContainer = document.getElementById('chapter-nav-container-main');
     if (!navContainer) {
-        console.error("Chapter navigation container (#chapter-nav-container) not found in HTML.");
+        console.error("Chapter navigation container (#chapter-nav-container-main) not found in HTML.");
         return;
     }
 

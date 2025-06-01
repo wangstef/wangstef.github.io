@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Craniosynostosis Visual Novel</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../MRPCC/css/styles.css" />
 </head>
 <body>
-  <div id="splash-screen">
-    <img src="assets/images/logo.png" alt="Logo" class="logo" />
-  </div>
 
-  <div id="main-menu" class="hidden">
+  <div id="main-menu" class="">
     <h1>Welcome to the Craniosynostosis Journey</h1>
     <button onclick="startJourney()">Start</button>
     <nav>
@@ -19,8 +16,14 @@
       <a href="downloads.html">Download Images</a>
       <a href="resources.html">External Resources</a>
     </nav>
+
+   <div id="chapter-nav-container-main"></div>
   </div>
 
+
+
+ <!-- Scripts -->
+  <script src="../MRPCC/js/navigation/navigationmain.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
