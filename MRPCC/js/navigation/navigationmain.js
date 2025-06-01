@@ -188,27 +188,32 @@ document.addEventListener('DOMContentLoaded', function () {
         ul.appendChild(li);
     });
 
-    navElement.appendChild(ul);
-    navContainer.innerHTML = ''; 
-    navContainer.appendChild(navElement);
+ navElement.appendChild(ul);
+    navContainer.innerHTML = ''; 
+    navContainer.appendChild(navElement);
 
-    // Event listeners for HOVER popups (only for non-intercepted links)
-    document.querySelectorAll('.has-popup').forEach(popupLi => {
-        const mainLink = popupLi.querySelector('a');
-        // Only attach hover listeners if the link is NOT intercepted for path choice
-        if (mainLink && mainLink.getAttribute('href') !== 'javascript:void(0);') {
-            const popupMenu = popupLi.querySelector('.popup-menu');
-            if (!popupMenu) return;
+    // MODIFIED Event listeners for popups: Trigger on main link hover
+    document.querySelectorAll('.has-popup').forEach(popupLi => {
+        // Find the main link within this LI, EXCLUDING links that are for modal triggers
+        const mainLink = popupLi.querySelector('a:not([href="javascript:void(0);"])');
+        const popupMenu = popupLi.querySelector('.popup-menu');
 
-            popupLi.addEventListener('mouseenter', function() {
-                this.classList.add('popup-open');
-            });
-            popupLi.addEventListener('mouseleave', function() {
-                this.classList.remove('popup-open');
-            });
-        }
-    });
-    
+        if (mainLink && popupMenu) { // Ensure both the link and its popup menu exist
+            mainLink.addEventListener('mouseenter', function() {
+                // 'this' is the mainLink (<a>)
+                // Add 'popup-open' to the parent <li> (popupLi) to show the menu
+                popupLi.classList.add('popup-open');
+            });
+
+            // The mouseleave event should be on the <li> (popupLi)
+            // This allows the mouse to move from the link into the opened popup menu
+            // without the menu immediately closing.
+            popupLi.addEventListener('mouseleave', function() {
+                // 'this' is the popupLi (<li>)
+                this.classList.remove('popup-open');
+            });
+        }
+    });
     // Apply body class for theming
     document.body.className = document.body.className.replace(/\b(path-|journey-)[a-zA-Z0-9_-]+\b/g, '');
     if (chosenPath && viewerChapterId && chapterDefinitions.find(c=>c.id === viewerChapterId && (c.type === "pathSpecific" || c.id >=3) )) {
