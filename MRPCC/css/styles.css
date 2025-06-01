@@ -8,6 +8,17 @@ body, html {
     overflow: hidden; /* Allow vertical scroll, prevent horizontal */
 }
  
+#splash-screen { /* Added from your description, ensure it's styled if used */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff; /* Example background */
+    position: fixed;
+    z-index: 3000; /* Very high z-index */
+    /* Add animation for fadeOut if splash-screen itself fades */
+}
 
 .logo {
     width: 200px; /* Or your desired size */
@@ -36,6 +47,17 @@ body, html {
     background: #004999;
 }
  
+@keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+ 
+.hidden {
+    display: none !important; /* Make sure hidden class always hides */
+}
+
 /* Chapter styles */
 .chapter-container {
     position: relative;
