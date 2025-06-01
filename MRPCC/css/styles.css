@@ -294,68 +294,134 @@ input:checked + .slider:before {
 /* END OF YOUR ORIGINAL STYLES - NEW/UPDATED NAVIGATION STYLES BELOW */
 /* -------------------------------------------------------------------- */
 
-/* Updated Chapter Navigation Bar Container ENDO*/
-#chapter-nav-container-endo {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #cfe3ce; /* Light brownish/grey background for the bar */
-    padding: 8px 0; 
-    z-index: 150; /* Above page content, below modals */
-    text-align: center;
+/* ENDOSCOPIC NAV*/
+    #chapter-nav-container-endo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+        padding: 8px 0; 
+        z-index: 150; /* Above page content, below modals */
+        text-align: center;
 
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    /* border-top: 1px solid #CECABE;  */
-}
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        /* border-top: 1px solid #CECABE;  */
+    }
 
-#chapter-nav-container-endo ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    #chapter-nav-container-endo ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#chapter-nav-container-endo ul li {
-    margin: 0 5px; 
-    position: relative; /* For popup positioning */
-}
+    #chapter-nav-container-endo ul li {
+        margin: 0 5px; 
+        position: relative; /* For popup positioning */
+    }
 
-/* New Button Styles */
-#chapter-nav-container-endo ul li a {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    background-color: #F5F3EF; /* Light cream/beige button background */
-    color: #ca5405; 
-    text-decoration: none;
-    padding: 10px 18px; 
-    border-radius: 25px; 
-    border: 5px solid #ca5405; 
-    font-weight:bold; 
-    letter-spacing: 0.5px;
-    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
-    min-width: 80px; 
-    white-space: nowrap; 
-}
+    /* New Button Styles */
+    #chapter-nav-container-endo ul li a {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        background-color: #F5F3EF; /* Light cream/beige button background */
+        color: #ca5405; 
+        text-decoration: none;
+        padding: 10px 18px; 
+        border-radius: 25px; 
+        border: 5px solid #ca5405; 
+        font-weight:bold; 
+        letter-spacing: 0.5px;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+        min-width: 80px; 
+        white-space: nowrap; 
+    }
 
-/* Hover Effect for Buttons */
-#chapter-nav-container-endo ul li a:hover {
-    background-color: #ffde96; /* Brownish tan hover */
-    color: #ca5405; 
-    border-color: #ffffff; 
-}
+    /* Hover Effect for Buttons */
+    #chapter-nav-container-endo ul li a:hover {
+        background-color: #ffde96; /* Brownish tan hover */
+        color: #ca5405; 
+        border-color: #ffffff; 
+    }
 
-/* Active Button Style */
-#chapter-nav-container-endo ul li a.active,
-#chapter-nav-container-endo ul li a.active-parent { /* Style for parent of an active sub-item */
-    background-color: #ca5405; /* Muted brown active color */
-    color: #FFFFFF; 
-    border-color: #ca5405; 
-    font-weight: 700;
-}
+    /* Active Button Style */
+    #chapter-nav-container-endo ul li a.active,
+    #chapter-nav-container-endo ul li a.active-parent { /* Style for parent of an active sub-item */
+        background-color: #ca5405; /* Muted brown active color */
+        color: #FFFFFF; 
+        border-color: #ca5405; 
+        font-weight: 700;
+    }
+
+/* CRANIAL VAULT NAV */
+        #chapter-nav-container-cranial {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+        padding: 8px 0; 
+        z-index: 150; /* Above page content, below modals */
+        text-align: center;
+
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        /* border-top: 1px solid #CECABE;  */
+    }
+
+    #chapter-nav-container-cranial ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #chapter-nav-container-cranial ul li {
+        margin: 0 5px; 
+        position: relative; /* For popup positioning */
+    }
+
+    /* New Button Styles */
+    #chapter-nav-container-cranial ul li a {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        background-color: #E2F1F3; /* Light cream/beige button background */
+        color: #45327C; 
+        text-decoration: none;
+        padding: 10px 18px; 
+        border-radius: 25px; 
+        border: 5px solid #45327C; 
+        font-weight:bold; 
+        letter-spacing: 0.5px;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+        min-width: 80px; 
+        white-space: nowrap; 
+    }
+
+    /* Hover Effect for Buttons */
+    #chapter-nav-container-cranial ul li a:hover {
+        background-color: #b2afd0; /* Brownish tan hover */
+        color: #45327C; 
+        border-color: #E2F1F3; 
+    }
+
+    /* Active Button Style */
+    #chapter-nav-container-cranial ul li a.active,
+    #chapter-nav-container-cranial ul li a.active-parent { /* Style for parent of an active sub-item */
+        background-color: #45327C; /* Muted brown active color */
+        color: #E2F1F3; 
+        border-color: #45327C; 
+        font-weight: 700;
+    }
+
+
+
 
 /* Icon Styling (for popup arrows) */
 .nav-icon.popup-icon {
@@ -423,47 +489,4 @@ input:checked + .slider:before {
     background-color: #FB8C00; /* Even darker orange for active sub-item */
     color: #FFFFFF;
     font-weight: bold;
-}
-
-/* Path-specific/Journey-specific theming for nav bar (examples) */
-/* These can override the default nav bar styles if needed */
-.path-splitcraniectomy #chapter-nav-container {
-    background-color: #4a334a; /* Different bar color for split path */
-    border-top-color: #3c2a3c;
-}
-.path-splitcraniectomy #chapter-nav-container ul li a {
-    /* background-color: #yourColor; color: #yourColor; */
-}
-.path-splitcraniectomy #chapter-nav-container ul li a:hover {
-    /* background-color: #yourHoverColor; */
-}
-.path-splitcraniectomy #chapter-nav-container ul li a.active {
-    background-color: #946194;
-    border-color: #7a417a;
-}
-/* Arrows for path-splitcraniectomy would be styled like before */
-.path-splitcraniectomy .arrow { 
-    background-color: rgba(148, 97, 148, 0.7); 
-    color: white;
-}
-
-.path-cranialvaultadvanced #chapter-nav-container {
-    background-color: #334a4a; 
-    border-top-color: #2a3c3c;
-}
-.path-cranialvaultadvanced #chapter-nav-container ul li a.active {
-    background-color: #619494;
-    border-color: #417a7a;
-}
-.path-cranialvaultadvanced .arrow {
-    background-color: rgba(97, 148, 148, 0.7); 
-    color: white;
-}
-
-/* Journey specific styling for Ch1/2 if desired */
-.journey-endoscopic #chapter-nav-container {
-    /* background-color: #E0DED8; /* Default, or specific if needed */
-}
-.journey-cranialvault #chapter-nav-container {
-    /* background-color: #yourColor; /* Specific for cranial vault bar if different */
 }
