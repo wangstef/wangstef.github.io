@@ -3,8 +3,9 @@ body {
     font-family:"Space Grotesk", sans-serif; /* Use Inter font for better readability */
     margin: 0;
     padding: 0;
-    height: 100%;
     background: #f4f4f4;
+    width: auto;
+    height: 100vh; /* Full viewport height */
     overflow: hidden; /* Allow vertical scroll, prevent horizontal */
 }
 /* Main menu things */
@@ -57,9 +58,21 @@ body {
             flex-direction: column;
             align-items: center; /* Center icon and start button */
         }
+        .left-panel button {
+            background-color: #f39c12; /* Orange color from image */
+            color: white;
+            font-family: "Inter", sans-serif; /* Use Inter font for better readability */
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            padding: 25px 60px; /* Larger padding for better appearance */
+            font-size: 30px; /* Larger font size */
+            cursor: pointer;
+            margin-top: 0px; /* Space between icon and button */
+        }
         /* logo */
         .main-icon {
-            width: 200px; /* Adjust as needed */
+            width: 300px; /* Adjust as needed */
             height: auto;
             margin-bottom: 30px;
         }
@@ -74,15 +87,16 @@ body {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding-top: 20px; /* Align text better with icon */
+            padding-top: 50px; /* Align text better with icon */
         }
 
         .intro-text {
             font-size: 18px;
-            color: #555;
+            color: #1A4651;
             line-height: 1.6;
+            font-weight: 500;
             margin-bottom: 40px;
-            max-width: 450px;
+            max-width: none;
         }
         /* Resources */
         .resources-container {
