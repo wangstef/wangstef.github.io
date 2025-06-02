@@ -57,10 +57,102 @@ body {
             flex-direction: column;
             align-items: center; /* Center icon and start button */
         }
+        /* logo */
         .main-icon {
             width: 200px; /* Adjust as needed */
             height: auto;
             margin-bottom: 30px;
+        }
+
+        .btn-start {
+            padding: 20px 60px; /* Larger padding for Start button */
+            font-size: 24px;
+            width: auto; /* Fit content or set specific width */
+        }
+        /* right panel */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px; /* Align text better with icon */
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 450px;
+        }
+        /* Resources */
+        .resources-container {
+            display: flex;
+            justify-content: space-around; /* Distribute items evenly */
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .resource-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .resource-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #ddeedd; /* Light greenish color */
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .resource-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Lightbox (Initially Hidden) */
+        .mainmenu-lightbox-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's on top */
+        }
+
+        .mainmenu-lightbox-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 80%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .mainmenu-lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+        }
+        .mainmenu-lightbox-close:hover {
+            color: #000;
         }
         
 
