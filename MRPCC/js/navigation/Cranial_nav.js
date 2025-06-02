@@ -1,4 +1,4 @@
-// js/navigation.js
+// js/navigation.js (adapted for "cranialvault" default)
 document.addEventListener('DOMContentLoaded', function () {
     const navContainer = document.getElementById('chapter-nav-container-cranial');
     if (!navContainer) {
@@ -9,106 +9,94 @@ document.addEventListener('DOMContentLoaded', function () {
     const path = window.location.pathname;
     const pathSegments = path.split('/').filter(Boolean);
 
-    if (pathSegments.length < 2) {
+    if (pathSegments.length < 2) { // Expect at least /folder/file.html
         navContainer.style.display = 'none';
+        console.warn("Path does not have enough segments to determine folder and file. Nav will not be displayed.");
         return;
     }
 
     const currentPageFilename = pathSegments[pathSegments.length - 1];
-    const currentFolder = pathSegments[pathSegments.length - 2];
-    
-    const chosenPathKey = 'visualNovelChosenPath';
-    const chosenPath = localStorage.getItem(chosenPathKey);
+    const currentUrlFolder = pathSegments[pathSegments.length - 2]; // Folder from the current URL
 
-    // Chapter Definitions (IDs are important for this logic)
+    const chosenPathKey = 'visualNovelChosenPath';
+    const chosenPath = localStorage.getItem(chosenPathKey); // e.g., 'splitcraniectomy' or 'cranialvaultadvanced'
+
+    // Helper function to determine the expected folder for a chapter
+    function getExpectedFolderForChapter(chapterId, currentChosenPathOverride) {
+        if (chapterId <= 2) {
+            return 'nonjourney';
+        } else { // chapterId >= 3
+            // Use currentChosenPathOverride if provided (e.g. from localStorage), otherwise default to 'cranialvault'
+            return currentChosenPathOverride || 'cranialvault';
+        }
+    }
+
+    // IMPORTANT: Ensure chapterDefinitions use filenames only for 'file' properties.
+    // Example (ensure your filenames match your actual files):
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "welcome.html", type: "dual" },
+        { id: 1, name: "Welcome", file: "chapter1.html" },
         {
-            id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
+            id: 2, name: "Intro", file: "chapter2.html", hasPopup: true,
             popup: [
-                { name: "Pronunciation", file: ".html" },
-                { name: "Animation", file: "intro_animation.html" },
-                { name: "Types", file: "intro_types.html" },
-                { name: "Surgical options", file: "intro_surgical.html" }
+                { name: "Pronunciation", file: "popup_pronunciation.html" },
+                { name: "Video: Craniosynostosis", file: "popup_video.html" },
+                { name: "Types", file: "popup_types.html" },
+                { name: "Surgical options", file: "popup_surgery_options.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "preop.html", type: "dual" }, // These will effectively become pathSpecific after choice
-        { id: 4, name: "Surgery", file: "surgery.html", type: "dual" },
+        { id: 3, name: "Pre-Op", file: "chapter3.html" },
+        { id: 4, name: "Surgery", file: "chapter4.html" },
         {
-            id: 5, name: "Post-Op", file: "postop_main.html", type: "dual", hasPopup: true,
+            id: 5, name: "Post-Op", file: "chapter5.html", hasPopup: true,
             popup: [
-                { name: "Hospital Recovery", file: "postop_hospital.html" },
-                { name: "Home Care", file: "postop_homecare.html" },
+                { name: "Timeline", file: "popup_timeline.html" },
+                { name: "Benefit vs Risks", file: "popup_benefits.html" },
             ]
         },
-        { id: 6, name: "End", file: "end.html", type: "dual" }
+        { id: 6, name: "End", file: "chapter6.html" }
     ];
 
     // Determine the ID of the chapter the user is currently viewing
     let viewerChapterId = null;
-    // Determine the effective folder for the current page (takes chosenPath into account)
-    let currentEffectiveFolder = chosenPath;
-    if (!chosenPath || !path.includes(`/${chosenPath}/`)) { // If no chosenPath or current URL doesn't reflect it
-        if (path.includes(`/${currentFolder}/`)) {
-            currentEffectiveFolder = currentFolder;
-        }
-    }
-    
     for (const chapterDef of chapterDefinitions) {
-        let chapterDefFolderContext = '';
-        if (chapterDef.type === "pathSpecific" && chosenPath) {
-            chapterDefFolderContext = chosenPath;
-        } else if (chapterDef.type === "dual") {
-            // For dual types, context is determined by where its files live (e.g., 'endoscopic' or 'cranialvault')
-            // We need to check if currentEffectiveFolder matches one of these for dual types
-            chapterDefFolderContext = currentEffectiveFolder; // Simplification: assume current folder is relevant for dual type check
-        }
+        const chapterDefExpectedFolder = getExpectedFolderForChapter(chapterDef.id, chosenPath);
 
-
-        if (chapterDef.file === currentPageFilename && chapterDefFolderContext === currentEffectiveFolder) {
+        if (chapterDef.file === currentPageFilename && chapterDefExpectedFolder === currentUrlFolder) {
             viewerChapterId = chapterDef.id;
             break;
         }
         if (chapterDef.popup) {
             for (const subItem of chapterDef.popup) {
-                if (subItem.file === currentPageFilename && chapterDefFolderContext === currentEffectiveFolder) {
-                    viewerChapterId = chapterDef.id; // Use parent chapter's ID for context
+                if (subItem.file === currentPageFilename && chapterDefExpectedFolder === currentUrlFolder) {
+                    viewerChapterId = chapterDef.id; // Use parent chapter's ID
                     break;
                 }
             }
         }
         if (viewerChapterId) break;
     }
-    // console.log("User is currently viewing content related to Chapter ID:", viewerChapterId);
+    // console.log("Current URL Folder:", currentUrlFolder, "Chosen Path:", chosenPath, "Viewer Chapter ID:", viewerChapterId);
 
     const navElement = document.createElement('nav');
     const ul = document.createElement('ul');
 
     chapterDefinitions.forEach(chapter => {
+        const targetChapterId = chapter.id;
+        // Determine the folder this link should point to or represent contextually
+        const targetLinkExpectedFolder = getExpectedFolderForChapter(targetChapterId, chosenPath);
+
+        const isTargetChapterPathSpecific = targetChapterId >= 3;
+
+        // Filename for modal targeting (ensure it's just the filename)
+        const targetChapterFileForModal = (chapter.file || (chapter.popup && chapter.popup[0] ? chapter.popup[0].file : `chapter${targetChapterId}.html`)).split('/').pop();
+
         let chapterLinkPath = "";
-        let linkFolderForContext = ""; // Folder context for the link being created
-
-        if (chapter.type === "pathSpecific" && chosenPath) {
-            linkFolderForContext = chosenPath;
-        } else if (chapter.type === "dual") {
-            // For dual chapters, links point to the version in the *current* journey (pre-choice)
-            // or the *chosen* path if that path reuses "dual" type chapters post-choice.
-            linkFolderForContext = chosenPath || currentFolder; // Default to currentFolder if no chosenPath
-            if (linkFolderForContext !== 'endoscopic' && linkFolderForContext !== 'cranialvault' && !chosenPath) {
-                 linkFolderForContext = 'endoscopic'; // Ensure a valid default for pre-choice dual links
-            }
-        } else {
-             // If type is not dual and no chosenPath for pathSpecific, this chapter might not be shown yet
-            if (!chosenPath && chapter.id >=3) return; // Don't show Ch3+ if no path chosen
-            linkFolderForContext = currentFolder; // Fallback
-        }
-
         if (chapter.file) {
-            chapterLinkPath = `../${linkFolderForContext}/${chapter.file}`;
+            chapterLinkPath = `../${targetLinkExpectedFolder}/${chapter.file}`;
         } else if (chapter.hasPopup) {
             chapterLinkPath = "javascript:void(0);";
         } else {
-            return; // Skip if no file and no popup
+            return; // Skip if no file and no popup items
         }
 
         const li = document.createElement('li');
@@ -119,19 +107,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const a = document.createElement('a');
         a.textContent = chapter.name;
 
-        const targetChapterId = chapter.id;
-        const isEarlyChapterView = (viewerChapterId === 1 || viewerChapterId === 2);
-        const isFutureChapterLink = (targetChapterId >= 3); // Pre-Op, Surgery, Post-Op, End
+        const onEarlyChapterForNav = (viewerChapterId === null || viewerChapterId === 1 || viewerChapterId === 2);
 
-        if (isEarlyChapterView && isFutureChapterLink && !chosenPath) {
+        // Modal trigger logic:
+        // If on an early chapter (1 or 2, or not on a recognized chapter page) AND
+        // the link is for a future path-specific chapter (3+) AND
+        // no specific path (like 'splitcraniectomy') has been chosen yet.
+        if (onEarlyChapterForNav && isTargetChapterPathSpecific && !chosenPath) {
             a.href = "javascript:void(0);";
             a.addEventListener('click', (e) => {
                 e.preventDefault();
-                displayPathSelectionModalInNav(chapter.file || (chapter.popup && chapter.popup[0] ? chapter.popup[0].file : 'chapter3.html')); // Pass target file
+                displayPathSelectionModalInNav(targetChapterFileForModal);
             });
-            if (chapter.hasPopup && a.querySelector('.popup-icon')) { // Hide default popup icon if intercepted
-                 // Icon is added later, so we might need to adjust this
-            }
         } else {
             a.href = chapterLinkPath;
         }
@@ -139,41 +126,44 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chapter.hasPopup) {
             const iconSpan = document.createElement('span');
             iconSpan.className = 'nav-icon popup-icon';
-            iconSpan.innerHTML = " &#9650;"; 
-            if (isEarlyChapterView && isFutureChapterLink && !chosenPath) {
-                iconSpan.style.display = 'none'; // Hide icon if link is intercepted
+            iconSpan.innerHTML = " &#9650;"; // Upwards triangle
+            if (onEarlyChapterForNav && isTargetChapterPathSpecific && !chosenPath) {
+                iconSpan.style.display = 'none'; // Hide icon if link is intercepted by modal
             }
             a.appendChild(iconSpan);
         }
 
-        // Active state
-        if (chapter.file && currentPageFilename === chapter.file && currentEffectiveFolder === linkFolderForContext) {
+        // Active state for main chapter link
+        if (chapter.file && chapter.file === currentPageFilename && targetLinkExpectedFolder === currentUrlFolder) {
             a.classList.add('active');
         }
-
         li.appendChild(a);
 
-        if (chapter.hasPopup && chapter.popup.length > 0) {
+        if (chapter.hasPopup && chapter.popup && chapter.popup.length > 0) {
             const popupUl = document.createElement('ul');
             popupUl.className = 'popup-menu';
             let parentIsActiveFromSub = false;
 
             chapter.popup.forEach(subItem => {
+                // Popups use the same folder context as their parent chapter's link target
+                const subItemTargetExpectedFolder = targetLinkExpectedFolder;
+                const subItemFileForModal = (subItem.file || '').split('/').pop();
+
                 const subLi = document.createElement('li');
                 const subA = document.createElement('a');
                 subA.textContent = subItem.name;
 
-                if (isEarlyChapterView && isFutureChapterLink && !chosenPath) { // Parent chapter (e.g. Post-Op) is a future link
+                if (onEarlyChapterForNav && isTargetChapterPathSpecific && !chosenPath) {
                     subA.href = "javascript:void(0);";
                     subA.addEventListener('click', (e) => {
                         e.preventDefault();
-                        displayPathSelectionModalInNav(subItem.file); // Pass sub-item's target file
+                        displayPathSelectionModalInNav(subItemFileForModal);
                     });
                 } else {
-                    subA.href = `../${linkFolderForContext}/${subItem.file}`;
+                    subA.href = `../${subItemTargetExpectedFolder}/${subItem.file}`;
                 }
 
-                if (subItem.file === currentPageFilename && currentEffectiveFolder === linkFolderForContext) {
+                if (subItem.file === currentPageFilename && subItemTargetExpectedFolder === currentUrlFolder) {
                     subA.classList.add('active-sub-item');
                     parentIsActiveFromSub = true;
                 }
@@ -188,73 +178,79 @@ document.addEventListener('DOMContentLoaded', function () {
         ul.appendChild(li);
     });
 
-navElement.appendChild(ul);
-    navContainer.innerHTML = ''; 
-    navContainer.appendChild(navElement);
+    navElement.appendChild(ul);
+    navContainer.innerHTML = ''; 
+    navContainer.appendChild(navElement);
 
-    // FINAL REVISED Event listeners for popups:
-    // Activation ONLY on link hover, with delay, and allows moving to menu
-    document.querySelectorAll('.has-popup').forEach(popupLi => {
-        const mainLink = popupLi.querySelector('a:not([href="javascript:void(0);"])');
-        const popupMenu = popupLi.querySelector('.popup-menu');
-        let closeTimer = null; // Timer variable scoped to each .has-popup element
+    // Event listeners for popups (hover logic)
+    document.querySelectorAll('.has-popup').forEach(popupLi => {
+        const mainLink = popupLi.querySelector('a');
+        const popupMenu = popupLi.querySelector('.popup-menu');
+        let closeTimer = null; 
 
-        if (mainLink && popupMenu) {
-            // This function is now ONLY called by mainLink to initially open the menu
-            const openMenuByLink = () => {
-                if (closeTimer) {
-                    clearTimeout(closeTimer);
-                    closeTimer = null;
-                }
-                popupLi.classList.add('popup-open');
-            };
-
-            const hideMenu = () => {
-                popupLi.classList.remove('popup-open');
-            };
-
-            const startHideTimer = () => {
-                if (closeTimer) {
-                    clearTimeout(closeTimer);
-                }
-                closeTimer = setTimeout(hideMenu, 250); // Adjust delay as needed
-            };
-
+        if (mainLink && mainLink.getAttribute('href') !== "javascript:void(0);" && popupMenu) {
+            const openMenuByLink = () => {
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+                popupLi.classList.add('popup-open');
+            };
+            const hideMenu = () => {
+                popupLi.classList.remove('popup-open');
+            };
+            const startHideTimer = () => {
+                if (closeTimer) { clearTimeout(closeTimer); }
+                closeTimer = setTimeout(hideMenu, 250); 
+            };
             const cancelHideTimer = () => {
-                if (closeTimer) {
-                    clearTimeout(closeTimer);
-                    closeTimer = null;
-                }
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
             };
 
-            // Activation: Only mainLink hover can open the menu
-            mainLink.addEventListener('mouseenter', openMenuByLink);
-            mainLink.addEventListener('mouseleave', startHideTimer);
+            mainLink.addEventListener('mouseenter', openMenuByLink);
+            mainLink.addEventListener('mouseleave', startHideTimer);
+            popupMenu.addEventListener('mouseenter', cancelHideTimer);
+            popupMenu.addEventListener('mouseleave', startHideTimer);
+        }
+    });
 
-            // Sustain: If mouse enters the popupMenu area (while it's already open
-            // or in the process of opening via the link), just cancel any pending close.
-            // This will NOT open the menu if it was closed and the link wasn't hovered.
-            popupMenu.addEventListener('mouseenter', cancelHideTimer);
-            popupMenu.addEventListener('mouseleave', startHideTimer);
-        }
-    });
-    
     // Apply body class for theming
-    document.body.className = document.body.className.replace(/\b(path-|journey-)[a-zA-Z0-9_-]+\b/g, '');
-    if (chosenPath && viewerChapterId && chapterDefinitions.find(c=>c.id === viewerChapterId && (c.type === "pathSpecific" || c.id >=3) )) {
-        document.body.classList.add(`path-${chosenPath}`);
-    } else if (currentFolder === 'endoscopic' || currentFolder === 'cranialvault') {
-        document.body.classList.add(`journey-${currentFolder}`);
+    document.body.className = document.body.className.replace(/\b(path-|journey-)[a-zA-Z0-9_-]+\b/g, ''); // Clear old theme classes
+    
+    let themeClass = '';
+    const currentChapterDefinition = chapterDefinitions.find(c => c.id === viewerChapterId);
+
+    if (currentChapterDefinition) {
+        if (currentChapterDefinition.id <= 2) {
+            themeClass = 'journey-nonjourney'; // Chapters 1 & 2 are always 'nonjourney'
+        } else { // Chapters 3+
+            themeClass = `path-${chosenPath || 'cranialvault'}`; // Use chosenPath or default to 'cranialvault'
+        }
+    } else { // No specific chapter identified, theme based on current folder
+        if (currentUrlFolder === 'nonjourney') {
+            themeClass = 'journey-nonjourney';
+        } else if (currentUrlFolder === 'cranialvault' && !chosenPath) {
+            // If in cranialvault folder and no specific other path is chosen
+            themeClass = 'path-cranialvault';
+        } else if (chosenPath && currentUrlFolder === chosenPath) {
+            // If in a folder that matches a chosenPath
+            themeClass = `path-${chosenPath}`;
+        } else if (currentUrlFolder === 'cranialvault' && chosenPath && chosenPath !== 'cranialvault') {
+            // Edge case: in 'cranialvault' folder, but a *different* path is chosen. Theme by chosenPath.
+             themeClass = `path-${chosenPath}`;
+        }
+        // If currentUrlFolder is something else entirely, no specific theme class might be applied here.
     }
+
+    if (themeClass) {
+        document.body.classList.add(themeClass);
+    }
+    // console.log("Applied theme class:", themeClass || "none");
+
 });
 
 
-// --- Function to display the path selection modal (Must be in this script) ---
+// --- Function to display the path selection modal (Mostly unchanged) ---
 function displayPathSelectionModalInNav(targetChapterFileOnClick) {
     if (document.getElementById('pathChoiceOverlay')) {
-        // If it exists, just make sure it's visible
         const existingOverlay = document.getElementById('pathChoiceOverlay');
-        // Update its internal state if necessary, e.g., the target file
         existingOverlay.dataset.targetFile = targetChapterFileOnClick;
         requestAnimationFrame(() => existingOverlay.classList.add('visible'));
         return;
@@ -262,17 +258,22 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
 
     const choiceContainer = document.createElement('div');
     choiceContainer.id = 'pathChoiceOverlay';
-    choiceContainer.className = 'path-choice-overlay'; // Uses styles from styles.css
-    choiceContainer.dataset.targetFile = targetChapterFileOnClick; // Store the intended target
+    choiceContainer.className = 'path-choice-overlay'; 
+    choiceContainer.dataset.targetFile = targetChapterFileOnClick; 
 
+    // These IDs are used as folder names and stored in localStorage if chosen.
+    // Ensure these IDs match your actual folder names for these specific paths.
     const PATH_SPLIT_CRANIECTOMY_MODAL = {
-        id: 'splitcraniectomy',
+        id: 'splitcraniectomy', 
         displayText: 'Split Craniectomy Path'
     };
-    const PATH_CRANIAL_VAULT_ADVANCED_MODAL = {
-        id: 'cranialvaultadvanced',
+    const PATH_CRANIAL_VAULT_ADVANCED_MODAL = { // This is a specific path, distinct from the "cranialvault" default folder
+        id: 'cranialvaultadvanced', 
         displayText: 'Advanced Cranial Vault Path'
     };
+    // If "cranialvault" (the default folder) should ALSO be an explicit choice in the modal:
+    // const PATH_CRANIAL_VAULT_DEFAULT_MODAL = { id: 'cranialvault', displayText: 'Standard Cranial Vault Path'};
+    // Then add a button for it below.
 
     choiceContainer.innerHTML = `
         <div class="path-choice-content">
@@ -280,42 +281,39 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
             <p>To explore this section, please first select which surgical approach you'd like to follow for the upcoming chapters.</p>
             <div class="path-choice-actions">
                 <button id="navModalSelectSplit" class="path-choice-button">${PATH_SPLIT_CRANIECTOMY_MODAL.displayText}</button>
-                <button id="navModalSelectCV" class="path-choice-button">${PATH_CRANIAL_VAULT_ADVANCED_MODAL.displayText}</button>
-            </div>
+                <button id="navModalSelectCVAdvanced" class="path-choice-button">${PATH_CRANIAL_VAULT_ADVANCED_MODAL.displayText}</button>
+                </div>
             <button id="navModalCancelPathChoice" class="path-choice-button" style="background-color: #7f8c8d; margin-top: 15px;">Cancel</button>
         </div>
     `;
     document.body.appendChild(choiceContainer);
     requestAnimationFrame(() => choiceContainer.classList.add('visible'));
 
-    document.getElementById('navModalSelectSplit').addEventListener('click', function() {
-        localStorage.setItem('visualNovelChosenPath', PATH_SPLIT_CRANIECTOMY_MODAL.id);
-        const targetFile = document.getElementById('pathChoiceOverlay').dataset.targetFile || 'chapter3.html';
-        window.location.href = `../${PATH_SPLIT_CRANIECTOMY_MODAL.id}/${targetFile}#page0`;
-        removeModal();
-    });
+    const handlePathSelection = (selectedPathId) => {
+        localStorage.setItem('visualNovelChosenPath', selectedPathId);
+        let targetFile = document.getElementById('pathChoiceOverlay').dataset.targetFile || `chapter3.html`;
+        
+        const finalTargetFile = targetFile.split('/').pop(); 
 
-    document.getElementById('navModalSelectCV').addEventListener('click', function() {
-        localStorage.setItem('visualNovelChosenPath', PATH_CRANIAL_VAULT_ADVANCED_MODAL.id);
-        const targetFile = document.getElementById('pathChoiceOverlay').dataset.targetFile || 'chapter3.html';
-        window.location.href = `../${PATH_CRANIAL_VAULT_ADVANCED_MODAL.id}/${targetFile}#page0`;
+        window.location.href = `../${selectedPathId}/${finalTargetFile}#page0`;
         removeModal();
-    });
+    };
 
-    document.getElementById('navModalCancelPathChoice').addEventListener('click', function() {
-        removeModal();
-    });
+    document.getElementById('navModalSelectSplit').addEventListener('click', () => handlePathSelection(PATH_SPLIT_CRANIECTOMY_MODAL.id));
+    document.getElementById('navModalSelectCVAdvanced').addEventListener('click', () => handlePathSelection(PATH_CRANIAL_VAULT_ADVANCED_MODAL.id));
+    // Add event listener for PATH_CRANIAL_VAULT_DEFAULT_MODAL button if added.
+    
+    document.getElementById('navModalCancelPathChoice').addEventListener('click', removeModal);
 
     function removeModal() {
         const overlay = document.getElementById('pathChoiceOverlay');
         if (overlay) {
             overlay.classList.remove('visible');
-            // Optional: remove the element from DOM after transition for cleanliness
             setTimeout(() => {
                 if (overlay && overlay.parentElement) {
                     overlay.parentElement.removeChild(overlay);
                 }
-            }, 300); // Match CSS transition duration
+            }, 300); 
         }
     }
 }
