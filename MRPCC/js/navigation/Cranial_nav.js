@@ -188,18 +188,20 @@ document.addEventListener('DOMContentLoaded', function () {
         ul.appendChild(li);
     });
 
- navElement.appendChild(ul);
+navElement.appendChild(ul);
     navContainer.innerHTML = ''; 
     navContainer.appendChild(navElement);
 
- // REVISED Event listeners for popups: With delay and better hover area handling
+    // FINAL REVISED Event listeners for popups:
+    // Activation ONLY on link hover, with delay, and allows moving to menu
     document.querySelectorAll('.has-popup').forEach(popupLi => {
         const mainLink = popupLi.querySelector('a:not([href="javascript:void(0);"])');
         const popupMenu = popupLi.querySelector('.popup-menu');
         let closeTimer = null; // Timer variable scoped to each .has-popup element
 
         if (mainLink && popupMenu) {
-            const showMenu = () => {
+            // This function is now ONLY called by mainLink to initially open the menu
+            const openMenuByLink = () => {
                 if (closeTimer) {
                     clearTimeout(closeTimer);
                     closeTimer = null;
@@ -212,21 +214,27 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             const startHideTimer = () => {
-                if (closeTimer) { // Clear existing timer if one was already set
+                if (closeTimer) {
                     clearTimeout(closeTimer);
                 }
-                closeTimer = setTimeout(hideMenu, 250); // Adjust delay as needed (e.g., 250ms)
+                closeTimer = setTimeout(hideMenu, 250); // Adjust delay as needed
             };
 
-            // When mouse enters the main link: show menu, cancel any pending close
-            mainLink.addEventListener('mouseenter', showMenu);
-            // When mouse leaves the main link: start a timer to close the menu
+            const cancelHideTimer = () => {
+                if (closeTimer) {
+                    clearTimeout(closeTimer);
+                    closeTimer = null;
+                }
+            };
+
+            // Activation: Only mainLink hover can open the menu
+            mainLink.addEventListener('mouseenter', openMenuByLink);
             mainLink.addEventListener('mouseleave', startHideTimer);
 
-            // When mouse enters the popup menu itself: show menu, cancel any pending close
-            // This is key to allow moving from the link to the menu
-            popupMenu.addEventListener('mouseenter', showMenu);
-            // When mouse leaves the popup menu: start a timer to close the menu
+            // Sustain: If mouse enters the popupMenu area (while it's already open
+            // or in the process of opening via the link), just cancel any pending close.
+            // This will NOT open the menu if it was closed and the link wasn't hovered.
+            popupMenu.addEventListener('mouseenter', cancelHideTimer);
             popupMenu.addEventListener('mouseleave', startHideTimer);
         }
     });

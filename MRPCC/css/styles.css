@@ -638,6 +638,7 @@ input:checked + .slider:before {
 }
 
 
+
 /* --- Popup Menu Styles --- */
 .popup-menu {
     opacity: 0; /* Initially hidden */ 
@@ -657,6 +658,13 @@ input:checked + .slider:before {
 
 .has-popup.popup-open > .popup-menu {
     opacity: 1; 
+}
+
+.has-popup .popup-menu {
+    display: none; /* Or other hiding mechanism like opacity: 0, visibility: hidden */
+}
+.has-popup.popup-open .popup-menu {
+    display: block; /* Or corresponding visible state */
 }
 
 .popup-menu li {
