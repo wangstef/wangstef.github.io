@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Chapter Definitions (IDs are important for this logic)
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "../nonjourney/chapter1.html", type: "dual" },
+        { id: 1, name: "Welcome", file: "../../MRPCC/nonjourney/chapter1.html", type: "dual" },
         {
             id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
             popup: [
