@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const chapterDefinitions = [
         { id: 1, name: "Welcome", file: "../../MRPCC/nonjourney/chapter1.html", type: "dual" },
         {
-            id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
+            id: 2, name: "Intro", file: "../../MRPCC/nonjourney/chapter2.html", type: "dual", hasPopup: true,
             popup: [
                 { name: "Pronunciation", file: "intro_pronunciation.html" },
                 { name: "Video: Understanding Craniosynostosis", file: "intro_animation.html" },
