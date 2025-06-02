@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
             popup: [
-                { name: "Pronunciation", file: "intro_pronunciation.html" },
+                { name: "Pronunciation", file: ".html" },
                 { name: "Animation", file: "intro_animation.html" },
                 { name: "Types", file: "intro_types.html" },
                 { name: "Surgical options", file: "intro_surgical.html" }

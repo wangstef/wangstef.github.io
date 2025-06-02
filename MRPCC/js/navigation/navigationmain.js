@@ -22,26 +22,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Chapter Definitions (IDs are important for this logic)
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "../../MRPCC/nonjourney/chapter1.html", type: "dual" },
+        { id: 1, name: "Welcome", file: "../../MRPCC/nonjourney/chapter1.html",},
         {
-            id: 2, name: "Intro", file: "../../MRPCC/nonjourney/chapter2.html", type: "dual", hasPopup: true,
+            id: 2, name: "Intro", file: "../../MRPCC/nonjourney/chapter2.html", hasPopup: true,
             popup: [
-                { name: "Pronunciation", file: "intro_pronunciation.html" },
-                { name: "Video: Understanding Craniosynostosis", file: "intro_animation.html" },
-                { name: "Types", file: "intro_types.html" },
-                { name: "Surgical options", file: "intro_surgical.html" }
+                { name: "Pronunciation", file: "../../MRPCC/path_selection.html" },
+                { name: "Video: Understanding Craniosynostosis", file: "../../MRPCC/path_selection.html" },
+                { name: "Types", file: "../../MRPCC/path_selection.html" },
+                { name: "Surgical options", file: "../../MRPCC/path_selection.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "preop.html", type: "dual" }, // These will effectively become pathSpecific after choice
-        { id: 4, name: "Surgery", file: "surgery.html", type: "dual" },
+        { id: 3, name: "Pre-Op", file: "../../MRPCC/path_selection.html"}, // These will effectively become pathSpecific after choice
+        { id: 4, name: "Surgery", file: "../../MRPCC/path_selection.html"},
         {
-            id: 5, name: "Post-Op", file: "postop_main.html", type: "dual", hasPopup: true,
+            id: 5, name: "Post-Op", file: "../../MRPCC/path_selection.html", hasPopup: true,
             popup: [
-                { name: "Timeline", file: "postop_hospital.html" },
-                { name: "Benefit vs Risks & Responsibilties", file: "postop_homecare.html" },
+                { name: "Timeline", file: "../../MRPCC/path_selection.html" },
+                { name: "Benefit vs Risks & Responsibilties", file: "../../MRPCC/path_selection.html" },
             ]
         },
-        { id: 6, name: "End", file: "end.html", type: "dual" }
+        { id: 6, name: "End", file: "../../MRPCC/path_selection.html" }
     ];
 
     // Determine the ID of the chapter the user is currently viewing
