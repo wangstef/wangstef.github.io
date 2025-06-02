@@ -327,11 +327,11 @@ input:checked + .slider:before {
         align-items: center;
         justify-content: center;
         background-color: #E2F1F3; /* Light cream/beige button background */
-        color: #45327C; 
+        color: #1A4651; 
         text-decoration: none;
         padding: .5rem .5rem; 
         border-radius: 25px; 
-        border: 5px solid #45327C; 
+        border: 5px solid #1A4651; 
         font-weight:bold; 
         letter-spacing: 0.5px;
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
@@ -341,17 +341,17 @@ input:checked + .slider:before {
 
     /* Hover Effect for Buttons */
     #chapter-nav-container-main ul li a:hover {
-        background-color: #b2afd0; /* Brownish tan hover */
-        color: #45327C; 
+        background-color: #1A4651; /* Brownish tan hover */
+        color: #E2F1F3; 
         border-color: #E2F1F3; 
     }
 
     /* Active Button Style */
     #chapter-nav-container-main ul li a.active,
     #chapter-nav-container-main ul li a.active-parent { /* Style for parent of an active sub-item */
-        background-color: #45327C; /* Muted brown active color */
+        background-color: #1A4651; /* Muted brown active color */
         color: #E2F1F3; 
-        border-color: #45327C; 
+        border-color: #1A4651; 
         font-weight: 700;
     }
 

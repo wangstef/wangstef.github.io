@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Chapter Definitions (IDs are important for this logic)
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "welcome.html", type: "dual" },
+        { id: 1, name: "Welcome", file: "../nonjourney/chapter1.html", type: "dual" },
         {
             id: 2, name: "Intro", file: "intro_main.html", type: "dual", hasPopup: true,
             popup: [
                 { name: "Pronunciation", file: "intro_pronunciation.html" },
-                { name: "Animation", file: "intro_animation.html" },
+                { name: "Video: Understanding Craniosynostosis", file: "intro_animation.html" },
                 { name: "Types", file: "intro_types.html" },
                 { name: "Surgical options", file: "intro_surgical.html" }
             ]
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             id: 5, name: "Post-Op", file: "postop_main.html", type: "dual", hasPopup: true,
             popup: [
-                { name: "Hospital Recovery", file: "postop_hospital.html" },
-                { name: "Home Care", file: "postop_homecare.html" },
+                { name: "Timeline", file: "postop_hospital.html" },
+                { name: "Benefit vs Risks & Responsibilties", file: "postop_homecare.html" },
             ]
         },
         { id: 6, name: "End", file: "end.html", type: "dual" }
