@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 { name: "Benefit vs Risks & Responsibilties", file: "../../MRPCC/path_selection.html" },
             ]
         },
-        { id: 6, name: "End", file: "../../MRPCC/path_selection.html" }
+        { id: 6, name: "End", file: "../../MRPCC/path_selection.html", type: "dual" }
     ];
 
     // Determine the ID of the chapter the user is currently viewing
