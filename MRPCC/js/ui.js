@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalHTML = `
     <div id="menuModalOverlay" class="modal-overlay hidden">
       <div class="modal-box">
-        <p>Are you sure you want to return to the main menu?<br><small>Unsaved progress may be lost.</small></p>
+        <p>Are you sure you want to return to the main menu?<br><small></small></p>
         <div class="modal-actions">
           <button id="confirmYes" class="modal-button confirm">Yes</button>
           <button id="confirmNo" class="modal-button cancel">Cancel</button>

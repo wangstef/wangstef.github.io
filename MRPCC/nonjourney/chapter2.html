@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chapter 1 – Endoscopic</title>
+  <title>Chapter 2 – Endoscopic</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
-
-
 <body>
   <div class="chapter-container">
-    <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
+    <img id="backgroundImg" src="../img/endoscopic-ch1-page1.jpg" class="background-img" alt="Chapter Page Background"/>
+
     <!-- Text -->
     <div id="textBox" class="text-box">
       <div id="textContent"></div> <!-- Holds the page text -->
@@ -22,7 +20,6 @@
     <button id="infoButton" class="page-button">Learn More</button>
 
     <div id="lightbox" class="lightbox hidden">
-      <!-- <div class="close-btn" onclick="toggleLightbox()">×</div> -->
       <div class="lightbox-content">
         <div class="close-btn" onclick="toggleLightbox()">×</div>
         <h2>More Information</h2>
@@ -30,32 +27,19 @@
       </div>
     </div>
 
-
     <div class="arrow left" onclick="prevPage()">&larr;</div>
     <div class="arrow right" onclick="nextPage()">&rarr;</div>
   </div>
 
-<!-- Navigation bar placeholder -->
-  <div id="chapter-nav-container-endo"></div>
-
-
-<!-- Toggle switch -->
-<label class="toggle-switch">
-    <input type="checkbox" id="journeyToggle">
-    <span class="slider"></span>
-  </label>
-  
-  <script src="../js/toggle.js"></script>
-
-
+ <!-- Navigation bar placeholder -->
+  <div id="chapter-nav-container-main"></div>
 
 <!-- Scripts -->
 <!-- Main menu button -->
 <script src="../js/ui.js"></script>
 <!-- Navigation bar -->
-<script src="../js/navigation/Endo_nav.js"></script>
-<script src="../js/endoscopic/chapter1.js"></script>
-
+<script src="../../MRPCC/js/navigation/navigationmain.js"></script>
+<script src="../js/nonjourney/chapter2.js"></script>
 
 </body>
 </html>

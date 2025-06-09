@@ -3,7 +3,7 @@ const pages = [
         img: "../img/images/Non journey/Ch 2 a.png",
         showButton: false ,
         showTextBox: true,
-        text: "Most parents have...."
+        text: "MAIN MENU"
     }, //showbutton is for lightbox button
     {
         img: "../img/images/Non journey/Ch 2 b.png",
