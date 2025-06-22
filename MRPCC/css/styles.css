@@ -4,28 +4,33 @@ body {
     margin: 0;
     padding: 0;
     background: #f4f4f4;
-    width: auto;
+    width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow: hidden; /* Allow vertical scroll, prevent horizontal */
 }
 /* Main menu things */
   .container {
             width: 90%;
+            height: auto;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0px;
+            height: 100%; /* Or min-height: 100% */
+            display: flex;
+            flex-direction: column;
         }
         /* Header */
         header {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            padding: 20px 0;
-            margin-bottom: 30px;
+            padding: 0px 0;
+            margin-bottom: 0px;
         }
         /* Button */
         .btn {
             padding: 10px 20px;
+            margin: 0 10px;
             border: 2px solid #f39c12; /* Orange color from image */
             border-radius: 8px;
             cursor: pointer;
@@ -49,16 +54,18 @@ body {
         .main-content {
             display: flex;
             flex-grow: 1;
-            gap: 40px; /* Space between left and right sections */
-            align-items: flex-start; /* Align items to the top */
+            top: 0;
+            flex-direction: column; /* Stack items vertically */
+            gap: 0px; /* Space between left and right sections */
+            align-items:center; /* Align items to the top */
         }
-        .left-panel {
-            flex: 0 0 30%; /* Takes up about 30% of the width */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center icon and start button */
-        }
-        .left-panel button {
+       .main-content .btn-start {
+        padding: 25px 60px; /* Larger padding for better appearance */
+        font-size: 30px; /* Larger font size */
+        margin: 0; /* Remove the margin from the generic button style */
+        }   
+            
+        button {
             background-color: #f39c12; /* Orange color from image */
             color: white;
             font-family: "Inter", sans-serif; /* Use Inter font for better readability */
@@ -195,6 +202,84 @@ body {
  
 #main-menu nav a:hover {
     background: #004999;
+}
+
+/*Main menu hamburger menu */
+/* Container for the hamburger menu and its dropdown */
+.hamburger-menu {
+    position: relative; /* This is crucial for positioning the dropdown */
+    display: inline-block;
+}
+
+/* Styling for the hamburger button itself */
+.hamburger-btn {
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+}
+
+/* Styling for the three lines (spans) of the hamburger icon */
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #333; /* Or whatever color you prefer */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Animation for the icon turning into an 'X' --- */
+.hamburger-btn.open span:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.open span:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+
+/* Styling for the dropdown menu */
+.menu-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: calc(100% + 10px); /* Positioned below the button with 10px spacing */
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1000; /* Ensures it appears on top of other content */
+    overflow: hidden; /* Ensures content respects the border-radius */
+}
+
+/* Class to show the menu when active */
+.menu-dropdown.active {
+    display: block;
+}
+
+/* Styling for the links inside the dropdown */
+.menu-dropdown .menu-item {
+    display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif; /* Using the font from your project */
+    transition: background-color 0.2s ease;
+}
+
+/* Hover effect for the menu items */
+.menu-dropdown .menu-item:hover {
+    background-color: #f1f1f1;
 }
 
 
@@ -364,12 +449,13 @@ input:checked + .slider:before {
     position: fixed;
     top: 20px;
     left: 20px;
-    padding: 10px 16px;
+    padding: 10px 20px;
     background-color: #0077cc;
     color: white;
     border: none;
     border-radius: 8px;
     font-weight: bold;
+    font-size: medium;
     cursor: pointer;
     z-index: 1000; /* Consistent z-index */
     transition: background-color 0.3s;

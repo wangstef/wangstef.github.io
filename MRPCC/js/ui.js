@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const button = document.createElement('button');
   button.id = 'mainMenuButton';
   button.className = 'menu-button';
-  button.innerText = '🏠 Main Menu';
+  button.innerText = 'Main Menu';
   document.body.appendChild(button);
 
   // --- Create and insert modal markup ---

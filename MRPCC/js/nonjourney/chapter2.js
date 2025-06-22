@@ -55,7 +55,7 @@ const pageAudio = document.getElementById("pageAudio");
 const playPauseIcon = document.getElementById("playPauseIcon");
 
 // Icons for play and pause states
-const playIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+const playIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 16.57l-6.2-3.72V7.15L12 10.88l6.2-3.72v8.7l-6.2 3.73z" fill="currentColor"/><path d="M12 12.73l-4.5-2.7v-2.86l4.5 2.7v2.86z" fill="currentColor"/><path d="M12 10.03l-4.5-2.7v-2.86l4.5 2.7v2.86z" fill="currentColor"/><path d="M12 7.33l-4.5-2.7v-2.86l4.5 2.7v2.86z" fill="currentColor"/><path d="M12 4.63L7.5 1.93v-2.86l4.5 2.7v2.86z" fill="currentColor"/></svg>';
 const pauseIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
 
 
