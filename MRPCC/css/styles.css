@@ -537,7 +537,6 @@ input:checked + .slider:before {
         box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
         /* border-top: 1px solid #CECABE;  */
     }
-
     /*---------*/
      /* Buttons in the chapter bar */
     #chapter-nav-container-main ul {
@@ -567,11 +566,11 @@ input:checked + .slider:before {
         align-items: center;
         justify-content: center;
         background-color: #F5F3EF; 
-        color: #1A4651; 
+        color: #C85E00; 
         text-decoration: none;
         padding: 10px 8px; 
         border-radius: 25px; 
-        border: 5px solid #1A4651; 
+        border: 5px solid #C85E00; 
         font-weight:bold; 
         letter-spacing: 0.5px;
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out; 
@@ -584,17 +583,17 @@ input:checked + .slider:before {
 
     /* Hover Effect for Buttons */
     #chapter-nav-container-main ul li a:hover {
-        background-color: #cfe3ce; /* Brownish tan hover */
-        color: #1A4651; 
+        background-color: #FDC461; 
+        color: #C85E00; 
         border-color: #ffffff; 
     }
 
     /* Active Button Style */
     #chapter-nav-container-main ul li a.active,
     #chapter-nav-container-main ul li a.active-parent { /* Style for parent of an active sub-item */
-        background-color: #1A4651; /* Dark turquoise */
+        background-color: #C85E00; 
         color: #FFFFFF; 
-        border-color: #1A4651; 
+        border-color: #C85E00; 
         font-weight: 700;
     }
 

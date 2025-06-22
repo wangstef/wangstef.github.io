@@ -88,6 +88,8 @@ if (window.location.hash.startsWith("#page")) {
     if (currentPage > 0) {
       currentPage--;
       renderPage();
+    } else {
+      window.location.href = "../index.html"; // Go back to main menu
     }
   }
   
