@@ -14,7 +14,17 @@
 <body>
     <div class="container">
         <header>
+            <!-- Lightbox -->
              <button class="btn btn-primary-orange" id="ourTeamBtn">Our Team</button>
+
+            <div id="lightbox" class="lightbox hidden">
+            <!-- <div class="close-btn" onclick="toggleLightbox()">×</div> -->
+            <div class="lightbox-content">
+                <div class="close-btn" onclick="toggleLightbox()">×</div>
+                <h2>More Information</h2>
+                <p>OUR TEAM</p>
+            </div>
+            </div>
 
             <div class="hamburger-menu">
                 <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">

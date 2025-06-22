@@ -192,20 +192,6 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s; /* Added transform for hover effect */
 }
-/* Main menu buttons: glossary, download, external resoures*/
-#main-menu nav a {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background: #0066cc;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-}
- 
-#main-menu nav a:hover {
-    background: #004999;
-}
 
 /*Main menu hamburger menu */
 /* Container for the hamburger menu and its dropdown */
@@ -323,7 +309,7 @@ body {
     transform: translateY(-50%);
     font-size: 3rem;
     /* background-color: rgba(0, 0, 0, 0.5); */
-    color: rgb(20, 97, 190);
+    color: #1A4651;
     padding: 1rem;
     cursor: pointer;
     z-index: 2; /* Above background, below popups if any */
@@ -346,7 +332,7 @@ body {
     left: 70%;   /* Example position */
     padding: 12px 20px;
     font-size: 1rem;
-    background-color: #007bff;
+    background-color: #FFA726;
     color: white;
     border: none;
     border-radius: 8px;
@@ -425,12 +411,12 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #d8d8d8;
     transition: background-color 0.3s ease;
 }
 
 .progress-dot.active {
-    background-color: #007bff; /* Or match your theme */
+    background-color: #FFA726; /* Or match your theme */
 }
  
 /* Toggle switch */
@@ -462,7 +448,7 @@ body {
     border-radius: 50%;
 }
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #FFA726;
 }
 input:checked + .slider:before {
     transform: translateX(26px);
@@ -474,7 +460,7 @@ input:checked + .slider:before {
     top: 20px;
     left: 20px;
     padding: 10px 20px;
-    background-color: #0077cc;
+    background-color: #FFA726;
     color: white;
     border: none;
     border-radius: 8px;
@@ -485,7 +471,7 @@ input:checked + .slider:before {
     transition: background-color 0.3s;
 }
 .menu-button:hover {
-    background-color: #005fa3;
+    background-color: #FFA726;
 }
 
 /* Main menu modal confirmation popup */
@@ -524,7 +510,7 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 .modal-button.confirm {
-    background-color: #0077cc;
+    background-color: #FFA726;
     color: white;
 }
 .modal-button.cancel {
@@ -537,7 +523,7 @@ input:checked + .slider:before {
 
 /* END OF YOUR ORIGINAL STYLES - NEW/UPDATED NAVIGATION STYLES BELOW */
 /* -------------------------------------------------------------------- */
-/* MAINMENU chapter NAV bar*/
+/* MAINMENU chapter NAV background rectangle bar*/
     #chapter-nav-container-main {
         position: fixed;
         bottom: 0;
@@ -552,6 +538,8 @@ input:checked + .slider:before {
         /* border-top: 1px solid #CECABE;  */
     }
 
+    /*---------*/
+     /* Buttons in the chapter bar */
     #chapter-nav-container-main ul {
         list-style-type: none;
         margin: 0;
@@ -559,30 +547,39 @@ input:checked + .slider:before {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
 
     #chapter-nav-container-main ul li {
         /*margin between the buttons horizontal*/
         margin: 0 5px; 
         position: relative; /* For popup positioning */
+        /* ADD these flex properties to allow items to shrink and grow */
+        flex-grow: 1;   /* Allow items to grow to fill empty space */
+        flex-shrink: 1; /* Allow items to shrink when space is limited */
+        flex-basis: 0;    /* Tell items to share space equally */
+        min-width: 0;   /* CRUCIAL: Allows items to shrink below their natural text width */
     }
 
-    /* New Button Styles */
+   
     #chapter-nav-container-main ul li a {
         display: flex; 
         align-items: center;
         justify-content: center;
-        background-color: #F5F3EF; /* Light cream/beige button background */
+        background-color: #F5F3EF; 
         color: #1A4651; 
         text-decoration: none;
-        padding: 10px 18px; 
+        padding: 10px 8px; 
         border-radius: 25px; 
         border: 5px solid #1A4651; 
         font-weight:bold; 
         letter-spacing: 0.5px;
-        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
-        min-width: 80px; 
-        white-space: nowrap; 
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out; 
+        white-space: normal;/* Allow text to wrap */ 
+        text-align: center; /* Center text if it wraps to a new line */
+        line-height: 1.2;   /* Adjust line height for wrapped text */
+        width: 100%;        /* Make link fill its flexible container (the li) */
+        box-sizing: border-box; /* Include its own padding/border in its width */ 
     }
 
     /* Hover Effect for Buttons */
@@ -595,7 +592,7 @@ input:checked + .slider:before {
     /* Active Button Style */
     #chapter-nav-container-main ul li a.active,
     #chapter-nav-container-main ul li a.active-parent { /* Style for parent of an active sub-item */
-        background-color: #1A4651; /* Muted brown active color */
+        background-color: #1A4651; /* Dark turquoise */
         color: #FFFFFF; 
         border-color: #1A4651; 
         font-weight: 700;
@@ -829,6 +826,15 @@ input:checked + .slider:before {
 }
 
 
+
+/*----------------------------------------------*/
+
+
+
+
+
+
+
 /* --- Audio --- */
 .audio-button {
     display: flex; /* Use flexbox to align icon and text */
@@ -853,12 +859,13 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 60px;
     background-color: transparent;
+    width: 3.5rem; /* Width of the circle */
+    height: 3.5rem; /* Height of the circle */
     border: 3px solid white;
     border-radius: 50%; /* Makes it a circle */
     margin-right: 20px;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 .audio-button svg {

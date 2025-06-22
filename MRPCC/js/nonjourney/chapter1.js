@@ -91,6 +91,9 @@ if (window.location.hash.startsWith("#page")) {
     }
   }
   
+
+
+  // Event listeners THE LIGHTBOX
   function toggleLightbox() {
     lightbox.classList.toggle("hidden");
   }
