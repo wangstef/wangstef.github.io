@@ -6,7 +6,7 @@ body {
     background: #f4f4f4;
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Allow vertical scroll, prevent horizontal */
+    overflow:scroll; /* Allow vertical scroll, prevent horizontal */
 }
 /* Main menu things */
   .container {
@@ -34,7 +34,8 @@ body {
             font-family: "Inter", sans-serif;
             font-weight: bold;
             /* Use clamp() for fluid font size again */
-            font-size: clamp(0.5rem, 1vw, 1rem); /* Scales between 16px and 20px */    
+            /* clamp(MINIMUM_SIZE, PREFERRED_SCALABLE_SIZE, MAXIMUM_SIZE) */
+            font-size: clamp(1rem, 2.5vw, 1.25rem); /* Scales between 16px and 20px */    
             cursor: pointer;
             text-align: center;
             text-decoration: none;
@@ -46,8 +47,8 @@ body {
             color: white;
             border: 2px solid #f39c12; /* Set a consistent border */
             padding: .75em 1.5em; /* Padding for button */
-            /* clamp(MINIMUM_SIZE, PREFERRED_SCALABLE_SIZE, MAXIMUM_SIZE) */
-                }
+             }
+
         /* Our team button */
         .btn-primary-orange {
             background-color: #f39c12; /* Orange color from image */
@@ -61,14 +62,26 @@ body {
         /* Main Content Area */
         .main-content {
             display: flex;
-            padding: 0;
-            flex-grow: 1;
-            top: 0;
-            flex-direction: column; /* Stack items vertically */
-            gap: 0; /* Space between left and right sections */
-            align-items:center; /* Align items to the top */
-        }
+            flex-direction: row; /* This is KEY: Arrange children (logo, content-stack) side-by-side */
+            align-items: center;    /* Vertically align the logo and the content stack */
+            justify-content: center;/* Center the whole two-column group on the page */
+            gap: 50px;              /* Create a gap between the logo and the content stack */
             
+            flex-grow: 1; /* Allow it to fill the vertical space */
+            padding: 20px;
+            height: 100%;
+        }
+
+        /* Intro text and start button */
+        .content-stack {
+            display: flex;
+            flex-direction: column; /* Stack children (text, button) vertically */
+            gap: 25px;              /* Create space between the text and the button */
+            
+            /* This is KEY: Aligns the text and button to the left within this column */
+            align-items:center; /* Center the text and button horizontally */
+        }
+
         /* logo */
         .main-icon {
             width: 25vw; /* Adjust as needed */
@@ -76,7 +89,6 @@ body {
             min-width: 150px;
             height: auto;
         }
-
 
 
         .btn-start:hover {
@@ -93,7 +105,8 @@ body {
             font-weight: 500;
             max-width: 60ch; /* Use 'ch' unit to cap line-length for readability */
             text-align: center; /* Recommended for centered layouts */
-            margin-bottom: 40px;
+            margin-bottom: 0px;
+            
         }
         /* Resources */
         .resources-container {
