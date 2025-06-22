@@ -1,4 +1,4 @@
-/* Your Original styles.css content starts here */
+/* Index */
 body {
     font-family:"Space Grotesk", sans-serif; /* Use Inter font for better readability */
     margin: 0;
@@ -10,9 +10,9 @@ body {
 }
 /* Main menu things */
   .container {
-            width: 90%;
+            width: 100%;
             height: auto;
-            max-width: 1200px;
+            max-width: 100vw;
             margin: 0;
             padding: 0px;
             height: 100%; /* Or min-height: 100% */
@@ -27,19 +27,27 @@ body {
             padding: 0px 0;
             margin-bottom: 0px;
         }
-        /* Button */
+        /* 1. Base button for ALL buttons */
         .btn {
-            padding: 10px 20px;
-            margin: 0 10px;
-            border: 2px solid #f39c12; /* Orange color from image */
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
+        /* Common properties */
             display: inline-block;
+            font-family: "Inter", sans-serif;
+            font-weight: bold;
+            /* Use clamp() for fluid font size again */
+            font-size: clamp(0.5rem, 1vw, 1rem); /* Scales between 16px and 20px */    
+            cursor: pointer;
             text-align: center;
-        }
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 0 10px;
+
+        /* Default visual style */
+            background-color: #f39c12;
+            color: white;
+            border: 2px solid #f39c12; /* Set a consistent border */
+            padding: .75em 1.5em; /* Padding for button */
+            /* clamp(MINIMUM_SIZE, PREFERRED_SCALABLE_SIZE, MAXIMUM_SIZE) */
+                }
         /* Our team button */
         .btn-primary-orange {
             background-color: #f39c12; /* Orange color from image */
@@ -53,57 +61,39 @@ body {
         /* Main Content Area */
         .main-content {
             display: flex;
+            padding: 0;
             flex-grow: 1;
             top: 0;
             flex-direction: column; /* Stack items vertically */
-            gap: 0px; /* Space between left and right sections */
+            gap: 0; /* Space between left and right sections */
             align-items:center; /* Align items to the top */
         }
-       .main-content .btn-start {
-        padding: 25px 60px; /* Larger padding for better appearance */
-        font-size: 30px; /* Larger font size */
-        margin: 0; /* Remove the margin from the generic button style */
-        }   
             
-        button {
-            background-color: #f39c12; /* Orange color from image */
-            color: white;
-            font-family: "Inter", sans-serif; /* Use Inter font for better readability */
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            padding: 25px 60px; /* Larger padding for better appearance */
-            font-size: 30px; /* Larger font size */
-            cursor: pointer;
-            margin-top: 0px; /* Space between icon and button */
-        }
         /* logo */
         .main-icon {
-            width: 300px; /* Adjust as needed */
+            width: 25vw; /* Adjust as needed */
+            max-width: 350px; /* Limit maximum width */
+            min-width: 150px;
             height: auto;
-            margin-bottom: 30px;
         }
 
-        .btn-start {
-            padding: 20px 60px; /* Larger padding for Start button */
-            font-size: 24px;
-            width: auto; /* Fit content or set specific width */
-        }
-        /* right panel */
-        .right-panel {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding-top: 50px; /* Align text better with icon */
+
+
+        .btn-start:hover {
+            background-color: #ffffff;
+            border: 2px solid #f39c12; /* Orange color from image */
+            color: #f39c12;
         }
 
         .intro-text {
-            font-size: 18px;
+            /* Use clamp() for fluid font size again */
+            font-size: clamp(1rem, 2.5vw, 1.25rem); /* Scales between 16px and 20px */
             color: #1A4651;
             line-height: 1.6;
             font-weight: 500;
+            max-width: 60ch; /* Use 'ch' unit to cap line-length for readability */
+            text-align: center; /* Recommended for centered layouts */
             margin-bottom: 40px;
-            max-width: none;
         }
         /* Resources */
         .resources-container {
@@ -295,6 +285,8 @@ body {
     display: none !important; /* Make sure hidden class always hides */
 }
 
+
+/* -------------------------------------------------------------------- */
 /* Chapter styles */
 .chapter-container {
     position: relative;
