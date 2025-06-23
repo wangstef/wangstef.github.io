@@ -3,12 +3,14 @@ const pages = [
         img: "../img/images/Non journey/Ch 2 What is Craniosynostosis_.png",
         showButton: false,
         showTextBox: false,
+        showProgressDots: true,
         text: ""
     },     
     { 
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
+        showProgressDots: true,
         text: "Most parents have never heard of craniosynostosis before their child is diagnosed. Click on the button above to hear how it is pronounced.",
         // 🧩 1. ADD AUDIO PROPERTIES
         showAudioButton: true, // Show the button on this page
@@ -18,7 +20,8 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        showNextArrow: false,
+        // showNextArrow: false,
+        showProgressDots: true,
         showVideoButton: true,
         text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
     },
@@ -26,7 +29,7 @@ const pages = [
         img: "../img/images/Slide 16_9 - 1.png",
         showButton: false,
         showTextBox: false,
-        showNextArrow: true,
+        showProgressDots: true,
         text: "",
         youtubeId: "OCecxsDDwWY"
         
@@ -34,14 +37,16 @@ const pages = [
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
-        showTextBox: true,
+        showTextBox: false,
+        showProgressDots: true,
         text: "Challenges children may face growing up with craniosynostosis "
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: ""
+        showProgressDots: true,
+        text: " Cranio "
     },    
   ];
 
@@ -102,6 +107,10 @@ const videoIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="whit
 
   function renderPage() {
       const page = pages[currentPage];
+      
+      progressBar.style.display = page.showProgressDots ? "flex" : "none";
+
+
       backgroundImg.src = page.img;
       infoButton.style.display = page.showButton ? "block" : "none";
 
@@ -223,7 +232,7 @@ videoButton.addEventListener("click", nextPage);
       renderPage();
     } else {
       // Go to the last page of Chapter 1
-      window.location.href = "chapter1.html#page2";
+      window.location.href = "chapter1.html#page5";
     }
   }
   

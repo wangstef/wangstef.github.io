@@ -34,7 +34,7 @@ const pages = [
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
-        showTextBox: false,
+        showTextBox: true,
         text: ""
     }
 ];

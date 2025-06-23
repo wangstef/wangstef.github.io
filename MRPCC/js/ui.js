@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const mainMenuPath = '../index.html'; // Change to '../index.html' or './index.html' as needed
 
   // --- Event: Show modal ---
-  button.addEventListener('click', function () {
+  mainMenuButton.addEventListener('click', function (event) {
+    // ⭐️ BEST PRACTICE: Prevent the link from trying to navigate away
+    event.preventDefault(); 
     document.getElementById('menuModalOverlay').classList.remove('hidden');
   });
 

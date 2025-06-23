@@ -476,7 +476,7 @@ body {
 /* Textbox */
 .text-box {
     position: fixed;
-    bottom: 5rem; /* Adjust if it overlaps with new nav bar */
+    bottom: 8rem; /* Adjust if it overlaps with new nav bar */
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 4rem); /* Max width with padding */
@@ -497,9 +497,23 @@ body {
 
 /* Progress bar pages: Dots (inside text-box) */
 .progress-bar {
+    /* Positioning */
+    position: absolute;
+    bottom: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 600; /* Ensures it's on top of other content */
+
+    /* Flex layout for the dots */
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 12px;
+
+    /* bg*/
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 8px 16px; /* Padding around the dots */
+    border-radius: 20px; /* Rounded corners for the bar */
 }
 
 .progress-dot {
