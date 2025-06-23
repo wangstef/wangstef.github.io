@@ -37,18 +37,47 @@ const pages = [
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
-        showTextBox: false,
+        showTextBox: true,
         showProgressDots: true,
         text: "Challenges children may face growing up with craniosynostosis "
+    },
+    {
+        img: "../img/images/Non journey/Ch 2 l.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "With craniosynostosis there are some cases that can affect brain development and cause other complications. Your team will inform you if there are any concerns "
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: " Cranio "
-    },    
-  ];
+        text: "The primary purpose of this surgery is to help with the shape of the child’s head and to make room for the growing brain"
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "There are different types of craniosynostosis depending on what sutures have fused, click the poster to learn more"
+    },
+    {
+        img: "../img/images/Slide 16_9 - 1.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make based on what you believe is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives"
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "No matter what your decision is, your team at SickKids hospital will be there to help. If you choose not to pursue surgery, your team will still monitor and regularly check up to make sure your child stays healthy "
+    }
+      
+  ]; 
 
   
   let currentPage = 0;
@@ -154,16 +183,17 @@ const videoIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="whit
            videoContainer.style.display = "block";
            // The '?autoplay=1' makes the video play immediately.
            // The '&rel=0' prevents related videos from showing at the end.
-           videoContainer.innerHTML = `
-               <div class="video-responsive-wrapper">
-                   <iframe
-                       src="https://www.youtube.com/embed/${page.youtubeId}?autoplay=1&rel=0"
-                       frameborder="0"
-                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                       allowfullscreen>
-                   </iframe>
-               </div>
-           `;
+            videoContainer.innerHTML = `
+                <div class="video-responsive-wrapper">
+                    <iframe
+                        // FIX: Use the correct YouTube embed URL and template literal syntax.
+                        src="https://www.youtube.com/embed/${page.youtubeId}?autoplay=1&rel=0"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            `;
        } else {
            // If not, hide the container and REMOVE the iframe.
            // This is crucial to stop the video from playing in the background.

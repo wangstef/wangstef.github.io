@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             id: 2, name: "Intro", file: "chapter2.html", hasPopup: true, // Implicitly in "nonjourney"
             popup: [
-                { name: "Pronunciation", file: "chapter2#page0" },
-                { name: "Video: Craniosynostosis", file: "popup_video.html" },
-                { name: "Types", file: "popup_types.html" },
-                { name: "Surgical options", file: "popup_surgery_options.html" }
+                { name: "Pronunciation", file: "chapter2.html#page1" },
+                { name: "Video: Craniosynostosis", file: "chapter2.html#page3" },
+                { name: "Types", file: "chapter2.html#page7" },
+                { name: "Surgical options", file: "path_selection.html" }
             ]
         },
         { id: 3, name: "Pre-Op", file: "chapter3.html" }, // Path-specific
