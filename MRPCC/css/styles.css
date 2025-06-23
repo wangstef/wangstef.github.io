@@ -499,7 +499,7 @@ body {
 .progress-bar {
     /* Positioning */
     position: absolute;
-    bottom: 7rem;
+    bottom: 8rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 600; /* Ensures it's on top of other content */
@@ -529,6 +529,19 @@ body {
 }
  
 /* Toggle switch */
+
+/*
+  This rule finds any element with the class ".toggle-container"
+  that exists inside a body with the class ".page-chapter-1" OR ".page-chapter-2"
+  and hides it completely.
+*/
+.page-chapter-1 .toggle-container,
+.page-chapter-2 .toggle-container {
+  visibility: hidden; /* Hides the element but keeps its space */
+  opacity: 0;         /* Makes it fully transparent */
+}
+
+/* Toggle switch styles */
 .toggle-switch {
     position: relative;     /* CRITICAL: This allows the inner .slider to be positioned correctly within the switch */
     display: inline-block;  /* This is fine, it allows the element to have a defined width and height */
