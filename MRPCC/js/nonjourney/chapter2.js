@@ -35,7 +35,7 @@ const pages = [
         
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/Ch 2 n.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
@@ -63,7 +63,7 @@ const pages = [
         text: "There are different types of craniosynostosis depending on what sutures have fused, click the poster to learn more"
     },
     {
-        img: "../img/images/Slide 16_9 - 1.png",
+        img: "../img/images/Non journey/Ch 2 o.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
