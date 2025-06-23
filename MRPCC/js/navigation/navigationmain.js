@@ -1,4 +1,28 @@
 // js/navigation.js
+
+//Top Bar Dynamic Chapter Title Logic
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Logic to set the Dynamic Chapter Title in the Top Bar ---
+
+    const dynamicTitleElement = document.getElementById('dynamic-chapter-title');
+
+    // First, check if the title element actually exists on the current page.
+    if (dynamicTitleElement) {
+        // Get the full text from the page's <title> tag (e.g., "Chapter 2 – Endoscopic")
+        const pageTitle = document.title; 
+
+        // Split the title string at the "–" character and take the first part.
+        // The .trim() function removes any extra whitespace from the beginning or end.
+        const chapterPart = pageTitle.split('–')[0].trim();
+
+        // Finally, set the text of our element in the top bar.
+        dynamicTitleElement.textContent = chapterPart; // The result will be "Chapter 2"
+    }
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const navContainer = document.getElementById('chapter-nav-container-main');
     if (!navContainer) {
@@ -324,3 +348,4 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
         }
     }
 }
+

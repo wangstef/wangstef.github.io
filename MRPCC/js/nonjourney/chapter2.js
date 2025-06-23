@@ -26,6 +26,7 @@ const pages = [
         img: "../img/images/Slide 16_9 - 1.png",
         showButton: false,
         showTextBox: false,
+        showNextArrow: true,
         text: "",
         youtubeId: "OCecxsDDwWY"
         
