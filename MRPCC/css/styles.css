@@ -479,13 +479,13 @@ body {
     bottom: 8rem; /* Adjust if it overlaps with new nav bar */
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 4rem); /* Max width with padding */
-    max-width: 800px; /* Max width for readability */
+    width: calc(100% - 6rem); /* Max width with padding */
+    /* Max width for readability */
     background: #E1F3F4;
     border: 5px solid #457885; 
-    padding: 1.2rem;
+    padding: 2rem;
     border-radius: 2rem;
-    font-size: 1rem;
+    font-size: 2rem;
     color: #1A4651;
     z-index: 3; /* Above background image */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -536,6 +536,7 @@ body {
   and hides it completely.
 */
 .page-chapter-1 .toggle-container,
+.page-tutorial .toggle-container,
 .page-chapter-2 .toggle-container {
   visibility: hidden; /* Hides the element but keeps its space */
   opacity: 0;         /* Makes it fully transparent */
