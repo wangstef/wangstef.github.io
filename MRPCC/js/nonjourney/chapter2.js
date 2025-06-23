@@ -34,7 +34,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: ""
+        text: "Challenges children may face growing up with craniosynostosis "
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -171,8 +171,8 @@ const videoIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="whit
             //make next arrow disappear
       if (page.showNextArrow === false) {
         nextArrow.style.display = "none";
-    } else {
-        nextArrow.style.display = "block"; 
+    // } else {
+    //     nextArrow.style.display = "block"; 
     }
 
         // 🧩 Always store current page in the hash

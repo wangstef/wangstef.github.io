@@ -7,7 +7,80 @@ body {
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow:hidden; /* Allow vertical scroll, prevent horizontal */
+
+    /*added for arrows*/
+    display: flex; /* Use flexbox for layout */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* For absolute positioning of child elements */
+    gap: 200px; /* Space between elements */
 }
+
+/*Top bar styling*/
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Fixed height for the bar */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+  display: flex;
+  justify-content: space-between; /* Pushes items to the ends and center */
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1100; /* High z-index to stay on top */
+  box-sizing: border-box; /* Ensures padding is included in the width/height */
+}
+
+/* 1. Logo Menu Button */
+.logo-menu-button {
+  display: block; /* Allows setting height/width */
+  cursor: pointer;
+}
+
+.logo-menu-button img {
+  height: 60px; /* Adjust logo size as needed */
+  width: auto;
+  transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logo-menu-button:hover img {
+  opacity: 0.7; /* Makes logo transparent on hover */
+}
+
+/* 2. Title Container */
+.title-container {
+  text-align: center;
+  color: #1A4651;
+  flex-grow: 1; /* Allows the title to take up the middle space */
+}
+
+.resource-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.chapter-title {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 3. Toggle Switch Container */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between labels and the switch */
+}
+
+.toggle-label {
+  font-weight: 500;
+  color: #333;
+}
+
+
+
 /* Main menu things */
   .container {
             width: 100%;
@@ -307,7 +380,12 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 3rem;
+    /*sizing arrows*/
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* background-color: rgba(0, 0, 0, 0.5); */
     color: #1A4651;
     padding: 1rem;
@@ -315,14 +393,30 @@ body {
     z-index: 4 ; /* Above background, below popups if any */
     user-select: none;
     transition: background-color 0.3s, color 0.3s; /* Added transition */
+    border-radius: 50%;
 }
+
+    /* Add a transition to the SVG itself for a smooth opacity change */
+    .arrow svg {
+        transition: opacity 0.3s ease;
+    }
+
+    /* * This selector targets the <svg> element ONLY when its 
+        * parent .arrow container is being hovered.
+        * This makes the icon translucent, not the background.
+    */
+    .arrow:hover svg {
+        opacity: 0.6; /* Make the icon itself translucent */
+    }
+
+
  
 .arrow.left {
-    left: 1rem;
+    left: 2rem;
 }
  
 .arrow.right {
-    right: 1rem;
+    right: 2rem;
 }
 
 /* Lightbox */
