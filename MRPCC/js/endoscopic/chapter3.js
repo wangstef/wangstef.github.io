@@ -5,7 +5,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
         showTextBox: true,
-        text: "Hello this is journey 2"
+        text: "BLARRRRRRRR"
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -80,7 +80,7 @@ if (window.location.hash.startsWith("#page")) {
       renderPage();
     } else {
       // Go to next chapter
-      window.location.href = "chapter2.html";
+      window.location.href = "chapter4.html";
     }
   }
   

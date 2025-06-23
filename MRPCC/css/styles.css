@@ -781,7 +781,7 @@ input:checked + .slider:before {
     /* Active Button Style */
     #chapter-nav-container-endo ul li a.active,
     #chapter-nav-container-endo ul li a.active-parent { /* Style for parent of an active sub-item */
-        background-color: #ca5405; /* Muted brown active color */
+        background-color: #2D6460; /* Muted brown active color */
         color: #FFFFFF; 
         border-color: #ca5405; 
         font-weight: 700;
@@ -850,7 +850,7 @@ input:checked + .slider:before {
     #chapter-nav-container-cranial ul li a.active,
     #chapter-nav-container-cranial ul li a.active-parent { /* Style for parent of an active sub-item */
         background-color: #45327C; /* Muted brown active color */
-        color: #E2F1F3; 
+        color: #ffffff; 
         border-color: #45327C; 
         font-weight: 700;
     }
