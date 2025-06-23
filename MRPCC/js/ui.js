@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
   // --- Create and insert Main Menu button ---
-  const button = document.createElement('button');
-  button.id = 'mainMenuButton';
-  button.className = 'menu-button';
-  button.innerText = '🏠 Main Menu';
-  document.body.appendChild(button);
+ const mainMenuButton = document.getElementById('logo-menu-button');
+   // If the button doesn't exist on the page, stop the script to avoid errors.
+  if (!mainMenuButton) {
+    console.warn('Main menu button with id "logo-menu-button" not found.');
+    return; 
+  }
+  //old main menu button code
+  //-----------------------------
+  // button.id = 'mainMenuButton';
+  // button.className = 'menu-button';
+  // button.innerText = 'Main Menu';
+  // document.body.appendChild(button);
+  //-----------------------------
 
   // --- Create and insert modal markup ---
   const modalHTML = `
@@ -24,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const mainMenuPath = '../index.html'; // Change to '../index.html' or './index.html' as needed
 
   // --- Event: Show modal ---
-  button.addEventListener('click', function () {
+  mainMenuButton.addEventListener('click', function (event) {
+    // ⭐️ BEST PRACTICE: Prevent the link from trying to navigate away
+    event.preventDefault(); 
     document.getElementById('menuModalOverlay').classList.remove('hidden');
   });
 

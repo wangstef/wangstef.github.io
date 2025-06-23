@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surgical Options - Craniosynostosis Journey</title>
-    <link rel="stylesheet" href="css/styles.css"> <style>
-        /* Styles specific to the path selection page */
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* General body and typography improvements */
         body.path-selection-page {
-            background-color: #FFFFFF; /* White background */
-            color: #333333; /* Default dark text color */
-            font-family: sans-serif; /* Assuming this is your base font */
-            padding: 20px;
+            background-color: #FFFFFF;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 2rem;
             box-sizing: border-box;
             min-height: 100vh;
             display: flex;
@@ -18,185 +19,213 @@
             align-items: center;
         }
 
-        .path-selection-header {
-            text-align: center;
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 900px; /* Limit width of header content */
-        }
-
-        .path-selection-header .conditional-text {
-            font-size: 1.1em;
-            color: #E74C3C; /* Red color for emphasis */
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
+        /* Using clamp() for fluidly responsive font sizes */
         .path-selection-header h1 {
-            font-size: 2.5em; /* Main title "Surgical Options" */
-            margin-bottom: 5px;
-            color: #2C3E50; /* Dark blue/grey for title */
+            font-size: clamp(2rem, 5vw, 2.5rem); /* Min, Preferred, Max */
+            margin-bottom: 0.5rem;
+            color: #2C3E50;
         }
 
         .path-selection-header p {
-            font-size: 1.1em;
-            color: #555555; /* Subtitle color */
-            margin-bottom: 20px;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #555555;
+            margin-bottom: 2rem;
         }
 
+        .path-selection-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* --- CARD CONTAINER: Made more flexible --- */
         .path-options-container {
             display: flex;
-            justify-content: center; /* Center cards */
-            align-items: flex-start; /* Align cards to the top */
-            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
-            gap: 30px; /* Space between cards */
+            justify-content: center;
+            align-items: stretch; /* Cards will be equal height in a row */
+            flex-wrap: wrap;
+            gap: 2rem; /* Consistent gap */
             width: 100%;
-            max-width: 1000px; /* Max width for the two cards container */
         }
 
+        /* --- CARDS: Removed fixed height, improved responsive width --- */
         .path-option-card {
             background-color: #FFF;
-            border: 2px solid #FDEEAA; /* Light yellow border */
+            border: 2px solid #FDEEAA;
             border-radius: 15px;
-            width: 100%;
-            max-width: 420px; /* Max width for each card */
+            width: 100%; /* Take full width on small screens */
+            max-width: 450px; /* Set a max-width for larger screens */
+            flex-grow: 1; /* Allow cards to grow */
+            flex-basis: 400px; /* Ideal starting width before wrapping */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* To ensure rounded corners clip content */
+            overflow: hidden;
         }
 
         .path-option-card .card-header {
-            padding: 10px 15px;
+            padding: 1rem 1.5rem;
             text-align: center;
         }
+
         .path-option-card .card-header .age-info {
-            font-size: 0.9em;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             color: #555;
             font-weight: bold;
         }
 
         .path-option-card .card-image-container {
             width: 100%;
-            text-align: center; /* Center the image if it's smaller than container */
-            padding: 10px 0;
-        }
-        .path-option-card .card-image-container img {
-            max-width: 60%; /* Adjust as needed for your image size */
-            height: auto;
-            border-radius: 5px; /* Optional: if images have sharp corners */
+            text-align: center;
+            padding: 1rem 0;
         }
 
+        .path-option-card .card-image-container img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* --- CARD CONTENT: Let content dictate the height --- */
         .path-option-card .card-content {
-            background-color: #FEF9E7; /* Light yellow content background */
-            padding: 20px;
+            background-color: #FEF9E7;
+            padding: 1.5rem;
             text-align: left;
-            flex-grow: 1; /* Make content area fill available space */
-            position: relative; /* For positioning the select button */
-            min-height: 220px; /* Ensure a minimum height for content consistency */
+            flex-grow: 1; /* Ensures this section expands to fill card height */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-between; /* Pushes button to the bottom */
         }
 
         .path-option-card .card-content h2 {
-            font-size: 1.4em;
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             color: #333;
         }
+
         .path-option-card .card-content .surgery-subtitle {
-            font-size: 0.9em;
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
             color: #555;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
+
         .path-option-card .card-content .description {
-            font-size: 0.95em;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
             line-height: 1.6;
             color: #444;
-            margin-bottom: 20px; /* Space before button */
+            margin-bottom: 2rem; /* Ensure space before the button */
         }
+
         .path-option-card .card-content .description strong {
-            color: #D35400; /* Orange-red for bolded text */
+            color: #D35400;
+        }
+
+        /* --- BUTTONS --- */
+        .card-select-button1, .card-select-button2 {
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end; /* Align button to the right */
+        }
+
+        .card-select-button1:hover, .card-select-button2:hover {
+            transform: scale(1.1);
         }
 
         .card-select-button1 {
-            background-color: #F39C12; /* Orange button */
+            background-color: #F39C12;
             color: white;
-            border: none;
-            border-radius: 50%; /* Make it circular */
-            width: 45px;
-            height: 45px;
-            font-size: 1.8em; /* Adjust for arrow size */
-            line-height: 45px; /* Center arrow vertically */
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
         .card-select-button1:hover {
-            background-color: #E67E22; /* Darker orange */
+            background-color: #E67E22;
         }
         .card-select-button2 {
-            background-color: #6118d6; /* Orange button */
+            background-color: #6118d6;
             color: white;
-            border: none;
-            border-radius: 50%; /* Make it circular */
-            width: 45px;
-            height: 45px;
-            font-size: 1.8em; /* Adjust for arrow size */
-            line-height: 45px; /* Center arrow vertically */
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
+        }
+        .card-select-button2:hover {
+            background-color: #ba9bdd;
+        }
+
+        .card-select-button1 svg, .card-select-button2 svg {
+            width: 1em;
+            height: 1em;
+        }
+
+        /* --- BACK ARROW: Adjusted for responsiveness --- */
+        .back-arrow-button {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
+            top: 2rem;
+            left: 2rem;
+            width: 3rem;
+            height: 3rem;
+            color: #1A4651;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            transition: opacity 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
         }
 
-        .card-select-button2:hover {
-            background-color: #ba9bdd; /* Darker orange */
-        }
-
-
-        .back-arrow-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3rem;
-            /* background-color: rgba(0, 0, 0, 0.5); */
-            color: rgb(20, 97, 190);
-            padding: 1rem;
-            cursor: pointer;
-            z-index: 2; /* Above background, below popups if any */
-            user-select: none;
-            transition: background-color 0.3s, color 0.3s; /* Added transition */
-            left: 1rem;
-}
         .back-arrow-button:hover {
-            color: #5c8ee4; /* Slightly darker */
-        
+            opacity: 0.6;
         }
-        .back-arrow-button .arrow-icon {
-            font-size: 3rem;
+
+        /* --- MEDIA QUERIES for Responsiveness --- */
+
+        /* For tablets and smaller devices */
+        @media (max-width: 992px) {
+            .path-options-container {
+                flex-direction: column; /* Stack cards vertically */
+                align-items: center; /* Center cards in the column */
+            }
+
+            .path-option-card {
+                flex-basis: 100%; /* Allow card to take full width */
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 576px) {
+            body.path-selection-page {
+                padding: 1rem;
+            }
+
+            .back-arrow-button {
+                top: 1rem;
+                left: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .path-selection-header {
+                margin-bottom: 1.5rem;
+            }
+
+             .path-option-card .card-content {
+                padding: 1rem;
+             }
         }
 
     </style>
 </head>
 <body class="path-selection-page">
 
-    <div class="back-arrow-button" id="backButton">
-            <span class="arrow-icon">&larr;</span> 
-        </button>
+    <div class="back-arrow-button" id="backButton" aria-label="Go back">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+            <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
+        </svg>
     </div>
 
     <div class="path-selection-header">
@@ -210,7 +239,7 @@
                 <div class="age-info">Before 4 months old</div>
             </div>
             <div class="card-image-container">
-                <img src="img/images/path_endoscopic_placeholder.png" alt="Endoscopic Surgery Illustration">
+                <img src="img/images/Slide 4_3 .png" alt="Endoscopic Surgery Illustration">
             </div>
             <div class="card-content">
                 <div>
@@ -221,7 +250,9 @@
                     </p>
                 </div>
                 <button class="card-select-button1" id="selectEndoscopicPath" aria-label="Select Endoscopic Strip Craniectomy">
-                    &rarr;
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93" style="transform: rotate(180deg);">
+                        <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -231,7 +262,7 @@
                 <div class="age-info">All ages</div>
             </div>
             <div class="card-image-container">
-                <img src="img/images/path_cranialvault_placeholder.png" alt="Cranial Vault Reshaping Illustration">
+                <img src="img/images/Slide 4_3 .png" alt="Cranial Vault Reshaping Illustration">
             </div>
             <div class="card-content">
                 <div>
@@ -241,8 +272,10 @@
                         This is a <strong>more invasive surgery</strong> that remodels the skull. It requires <strong>less intensive aftercare</strong> and less in-person check ups.
                     </p>
                 </div>
-                <button class="card-select-button2" id="selectCranialVaultPath" aria-label="Select Cranial Vault Reshaping">
-                    &rarr;
+                 <button class="card-select-button2" id="selectCranialVaultPath" aria-label="Select Cranial Vault Reshaping">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93" style="transform: rotate(180deg);">
+                        <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -251,14 +284,13 @@
     <script>
         const PATH_CHOICE_STORAGE_KEY = 'visualNovelChosenPath';
 
-        // Update these to match your actual folder names and desired display text
-        const PATH_ENDOSCOPIC_EQUIVALENT = { // This would be your "Split Craniectomy" or similar path
-            id: 'endoscopic', // The ID used in localStorage and for folder names
+        const PATH_ENDOSCOPIC_EQUIVALENT = {
+            id: 'endoscopic',
             targetUrl: 'endoscopic/chapter1.html#page0'
         };
 
-        const PATH_CRANIAL_VAULT_EQUIVALENT = { // This would be your "Advanced Cranial Vault" or similar path
-            id: 'cranialvault', // The ID used in localStorage and for folder names
+        const PATH_CRANIAL_VAULT_EQUIVALENT = {
+            id: 'cranialvault',
             targetUrl: 'cranialvault/chapter1.html#page0'
         };
 
@@ -273,10 +305,9 @@
         });
 
         document.getElementById('backButton').addEventListener('click', function() {
-            history.back(); // Simple way to go to the previous page in browser history
+            history.back();
         });
 
-    
     </script>
 
 </body>

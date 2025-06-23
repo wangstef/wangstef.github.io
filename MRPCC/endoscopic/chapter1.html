@@ -10,13 +10,34 @@
 
 
 <body>
+    <header id="top-bar">
+    <a href="#" id="logo-menu-button" class="logo-menu-button">
+      <img src="/MRPCC/img/images/Logo/CC-logo-colour-v002-01.png" alt="Main Menu" /> </a>
+
+    <div class="title-container">
+      <div class="resource-title">Craniosynostosis Resources</div>
+      <div id="dynamic-chapter-title" class="chapter-title"></div> </div>
+
+    <div class="toggle-container">
+      <span class="toggle-label">Endoscopic</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="journeyToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label">Cranial Vault</span>
+    </div>
+  </header>
+  
+
   <div class="chapter-container">
     <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
     <!-- Text -->
     <div id="textBox" class="text-box">
       <div id="textContent"></div> <!-- Holds the page text -->
-      <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
     </div>
+
+        <!--Progess dots-->
+    <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
 
     <!-- Lightbox -->
     <button id="infoButton" class="page-button">Learn More</button>
@@ -31,20 +52,26 @@
     </div>
 
 
-    <div class="arrow left" onclick="prevPage()">&larr;</div>
-    <div class="arrow right" onclick="nextPage()">&rarr;</div>
+    <!--Arrows-->
+    <div class="arrow left" onclick="prevPage()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+            <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
+        </svg>
+    </div>
+
+    <div class="arrow right" id="nextArrow" onclick="nextPage()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+          <path fill-rule="nonzero" d="M70.77 499.85c-16.24 16.17-42.53 16.09-58.69-.15-16.17-16.25-16.09-42.54.15-58.7l185.5-185.03L12.23 70.93c-16.24-16.16-16.32-42.45-.15-58.7 16.16-16.24 42.45-16.32 58.69-.15l215.15 214.61c16.17 16.25 16.09 42.54-.15 58.7l-215 214.46z"/>
+      </svg>
+    </div>
+
   </div>
 
 <!-- Navigation bar placeholder -->
   <div id="chapter-nav-container-endo"></div>
 
 
-<!-- Toggle switch -->
-<label class="toggle-switch">
-    <input type="checkbox" id="journeyToggle">
-    <span class="slider"></span>
-  </label>
-  
+
   <script src="../js/toggle.js"></script>
 
 
