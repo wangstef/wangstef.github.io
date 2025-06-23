@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 80px; /* Fixed height for the bar */
-  background-color: #ffffff; /* White background */
+  background-color: #FDC461; /* White background */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
   display: flex;
   justify-content: space-between; /* Pushes items to the ends and center */
@@ -554,7 +554,7 @@ body {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;
+    background-color: #2D6460;
     transition: .4s;
     border-radius: 34px;
 }
@@ -568,7 +568,7 @@ body {
     border-radius: 50%;
 }
 input:checked + .slider {
-    background-color: #FFA726;
+    background-color: #45327C;
 }
 input:checked + .slider:before {
     transform: translateX(26px);
@@ -649,7 +649,7 @@ input:checked + .slider:before {
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+        background-color: #FFD791; /* Light brownish/grey background for the bar */
         padding: 8px 0; 
         z-index: 150; /* Above page content, below modals */
         text-align: center;
@@ -685,12 +685,12 @@ input:checked + .slider:before {
         display: flex; 
         align-items: center;
         justify-content: center;
-        background-color: #F5F3EF; 
+        background-color: #FFF4E0; 
         color: #C85E00; 
         text-decoration: none;
         padding: 10px 8px; 
         border-radius: 25px; 
-        border: 5px solid #C85E00; 
+        /* border: 5px solid #C85E00;  */
         font-weight:bold; 
         letter-spacing: 0.5px;
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out; 
@@ -724,7 +724,7 @@ input:checked + .slider:before {
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+        background-color: #EEFADC; /*green bar */
         padding: 8px 0; 
         z-index: 150; /* Above page content, below modals */
         text-align: center;
@@ -745,6 +745,11 @@ input:checked + .slider:before {
     #chapter-nav-container-endo ul li {
         margin: 0 5px; 
         position: relative; /* For popup positioning */
+        /* ADD these flex properties to allow items to shrink and grow */
+        flex-grow: 1;   /* Allow items to grow to fill empty space */
+        flex-shrink: 1; /* Allow items to shrink when space is limited */
+        flex-basis: 0;    /* Tell items to share space equally */
+        min-width: 0;   /* CRUCIAL: Allows items to shrink below their natural text width */
     }
 
     /* New Button Styles */
@@ -752,12 +757,12 @@ input:checked + .slider:before {
         display: flex; 
         align-items: center;
         justify-content: center;
-        background-color: #F5F3EF; /* Light cream/beige button background */
-        color: #ca5405; 
+        background-color: #CBE4A7; /* Light cream/beige button background */
+        color: #2D6460; 
         text-decoration: none;
         padding: 10px 18px; 
         border-radius: 25px; 
-        border: 5px solid #ca5405; 
+        /* border: 5px solid #2D6460;  */
         font-weight:bold; 
         letter-spacing: 0.5px;
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
@@ -767,8 +772,8 @@ input:checked + .slider:before {
 
     /* Hover Effect for Buttons */
     #chapter-nav-container-endo ul li a:hover {
-        background-color: #ffde96; /* Brownish tan hover */
-        color: #ca5405; 
+        background-color: #a9c384; /* Brownish tan hover */
+        color: #2D6460; 
         border-color: #ffffff; 
     }
 
@@ -787,7 +792,7 @@ input:checked + .slider:before {
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #cfe3ce; /* Light brownish/grey background for the bar */
+        background-color: #EEEDF7; /* Light brownish/grey background for the bar */
         padding: 8px 0; 
         z-index: 150; /* Above page content, below modals */
         text-align: center;
@@ -808,6 +813,11 @@ input:checked + .slider:before {
     #chapter-nav-container-cranial ul li {
         margin: 0 5px; 
         position: relative; /* For popup positioning */
+        /* ADD these flex properties to allow items to shrink and grow */
+        flex-grow: 1;   /* Allow items to grow to fill empty space */
+        flex-shrink: 1; /* Allow items to shrink when space is limited */
+        flex-basis: 0;    /* Tell items to share space equally */
+        min-width: 0;   /* CRUCIAL: Allows items to shrink below their natural text width */
     }
 
     /* New Button Styles */
@@ -815,12 +825,12 @@ input:checked + .slider:before {
         display: flex; 
         align-items: center;
         justify-content: center;
-        background-color: #E2F1F3; /* Light cream/beige button background */
+        background-color: #DCDAEB; /* light purple*/
         color: #45327C; 
         text-decoration: none;
         padding: 10px 18px; 
         border-radius: 25px; 
-        border: 5px solid #45327C; 
+        /* border: 5px solid #45327C;  */
         font-weight:bold; 
         letter-spacing: 0.5px;
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
