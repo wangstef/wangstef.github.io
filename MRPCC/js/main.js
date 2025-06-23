@@ -1,7 +1,7 @@
 
 // When clicking the "Start" button, redirect to the first chapter of the nonjourney html
  function startJourney() {
-   window.location.href = '/MRPCC/nonjourney/chapter1.html#page0'; 
+   window.location.href = '/MRPCC/nonjourney/tutorial.html'; 
  }
 
 

@@ -2,40 +2,10 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/Ch 1 Welcome.png",
+        img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
-        showTextBox: false,
-        text: ""
-    }, 
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
         showTextBox: true,
-        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to be your guide through exploring a surgical journey. From preparing for surgery all the way to aftercare."
-    },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
-        showTextBox: true,
-        text: "Firstly, congratulations on the birth of your baby!"
-    },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
-        showTextBox: true,
-        text: "Secondly, I know having a diagnosis of Craniosynostosis can be very overwhelming."
-    },
-    {
-        img: "../img/images/Non journey/Ch 1 d.png",
-        showButton: false,
-        showTextBox: true,
-        text: "But your team at SickKids hospital is there to help no matter what treatment you decide. We hope that this resource will help you in communicating better with them."
-    },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
-        showTextBox: false,
-        text: ""
+        text: "“Hi there, this is the text box where I will be speaking to you.”"
     }
 ];
   
@@ -98,7 +68,7 @@ if (window.location.hash.startsWith("#page")) {
       renderPage();
     } else {
       // Go to next chapter
-      window.location.href = "chapter2.html";
+      window.location.href = "chapter1.html";
     }
   }
   
@@ -107,7 +77,7 @@ if (window.location.hash.startsWith("#page")) {
       currentPage--;
       renderPage();
     } else {
-      window.location.href = "tutorial.html"; // Go back to main menu
+      window.location.href = "../index.html"; // Go back to main menu
     }
   }
   
@@ -122,4 +92,3 @@ if (window.location.hash.startsWith("#page")) {
   
   // Initial render
   renderPage();
-  

@@ -16,18 +16,26 @@
 
     <button id="audioButton" class="audio-button" style="display: none;">
         <div id="playPauseIcon" class="icon-container">
-            <!-- <svg width="30" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> -->
         </div>
         <span id="audioButtonText">Craniosynostosis (Cray-nee-oh-sin-oh-stow-sis)</span>
     </button>
-
-    <img id="backgroundImg" src="" alt="Background">
 
     <!-- Text -->
     <div id="textBox" class="text-box">
       <div id="textContent"></div> <!-- Holds the page text -->
       <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
     </div>
+
+    <!-- Play video button-->
+    <button id="videoButton" class="video-button" style="display: none;">
+        <div id="playVidIcon" class="icon-container">
+            </div>
+        <span id="videoButtonText"></span>
+    </button>
+    
+    <div id="videoContainer" class="video-container" style="display: none;">
+    </div>
+
 
     <!-- Lightbox -->
     <button id="infoButton" class="page-button">Learn More</button>
@@ -41,7 +49,7 @@
     </div>
 
     <div class="arrow left" onclick="prevPage()">&larr;</div>
-    <div class="arrow right" onclick="nextPage()">&rarr;</div>
+    <div id="nextArrow" class="arrow right" onclick="nextPage()">&rarr;</div>
   </div>
 
  <!-- Navigation bar placeholder -->

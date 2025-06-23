@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tutorial</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+
+<body>
+  <main>
+  <div class="chapter-container">
+    <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
+    <!-- Text -->
+    <div id="textBox" class="text-box">
+      <div id="textContent"></div> <!-- Holds the page text -->
+      <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
+    </div>
+
+    <!-- Lightbox -->
+    <button id="infoButton" class="page-button">Learn More</button>
+
+    <div id="lightbox" class="lightbox hidden">
+      <!-- <div class="close-btn" onclick="toggleLightbox()">×</div> -->
+      <div class="lightbox-content">
+        <div class="close-btn" onclick="toggleLightbox()">×</div>
+        <h2>More Information</h2>
+        <p>PLACEHOLDER.</p>
+      </div>
+    </div>
+
+
+    <div class="arrow left" onclick="prevPage()">&larr;</div>
+    <div class="arrow right" onclick="nextPage()">&rarr;</div>
+  </div>
+  </main>
+  
+  <div id="chapter-nav-container-main"></div>
+
+
+
+<!-- Scripts -->
+<!-- Main menu button -->
+<script src="../js/ui.js"></script>
+<!-- Navigation bar -->
+<script src="/MRPCC/js/navigation/navigationmain.js"></script>
+
+<!-- !CHANGE -->
+<script src="../js/nonjourney/tutorial.js"></script>
+
+
+</body>
+</html>
