@@ -32,9 +32,9 @@ const pages = [
         text: "But your team at SickKids hospital is there to help no matter what treatment you decide. We hope that this resource will help you in communicating better with them."
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/Ch 1 e.png",
         showButton: false,
-        showTextBox: true,
+        showTextBox: false,
         text: ""
     }
 ];
