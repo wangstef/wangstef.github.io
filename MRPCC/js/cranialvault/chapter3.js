@@ -5,7 +5,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
         showTextBox: true,
-        text: "GRAAAAAA"
+        text: "Cranial Vault"
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
